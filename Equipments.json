@@ -1,0 +1,603 @@
+{
+    "equipment": { 
+    "yamaha_dzr315": {
+    "brand": "Yamaha",
+    "model": "DZR315",
+    "category": "Sound System",
+    "specification": "Fullrange Three Way Speaker Column 2000 watt",
+    "quantity": 2,
+    "status": "Available",
+    "condition": "Good"
+    },
+
+    "yamaha_dxs18": {
+    "brand": "Yamaha",
+    "model": "DXS18",
+    "category": "Sound System",
+    "specification": "Subwoofer Speaker 2000 watt",
+    "quantity": 2,
+    "status": "Available",
+    "condition": "Good"
+    },
+
+    "yamaha_dbr15": {
+    "brand": "Yamaha",
+    "model": " DBR15",
+    "category": "Sound System",
+    "specification": "Fullrange Speaker Monitor 1000 watt",
+    "quantity": 2,
+    "status": "Available",
+    "condition": "Good"
+    },
+
+    "yamaha_dbr10": {
+    "brand": "Yamaha",
+    "model": " DBR10",
+    "category": "Sound System",
+    "specification": "Fullrange Speaker Monitor 1000 watt",
+    "quantity": 2,
+    "status": "Available",
+    "condition": "Good"
+    },
+
+    "wharfedale_england15":{
+    "brand": "Wharfedale",
+    "model": "England15",
+    "category": "Sound System",
+    "specification": "Passive Speakers",
+    "quantity": 2,
+    "status": "Available",
+    "condition": "Good"
+    },
+
+    "behringer_x32": {
+    "brand": "Behringer",
+    "model": "X32",
+    "category": "Sound System",
+    "specification": "Digital Mixer 32 Channel",
+    "quantity": 1,
+    "status": "Available",
+    "condition": "Good"
+    },
+
+    "behringer_s32": {
+    "brand": "Behringer",
+    "model": "S32",
+    "category": "Sound System",
+    "specification": "Stage Box",
+    "quantity": 1,
+    "status": "Available",
+    "condition": "Good"
+    },
+
+    "behringer_umc202":{
+    "brand": "Behringer",
+    "model": "UMC202",
+    "category": "Sound System",
+    "specification": "Soundcard",
+    "quantity": 1,
+    "status": "Available",
+    "condition": "Good"
+    },
+
+    "behringer_ultradi":{
+    "brand": "Behringer",
+    "model": "UltraDI",
+    "category": "Sound System",
+    "specification": "Direct box (Mono)",
+    "quantity": 7,
+    "status": "Available",
+    "condition": "Good"
+    },
+
+    "behringer_alv":{
+    "brand": "Behringer",
+    "model": "ALV",
+    "category": "Sound System",
+    "specification": "Direct box (Stereo)",
+    "quantity": 1,
+    "status": "Available",
+    "condition": "Good"
+    },
+
+    "Soundcraft_gigrac1000":{
+    "brand": "Soundcraft",
+    "model": "GigRac1000",
+    "category": "Sound System",
+    "specification": "Analog Mixer 12 Channel",
+    "quantity": 1,
+    "status": "Available",
+    "condition": "Good"
+    },
+
+    "ALTO":{
+    "brand": "ALTO",
+    "model": "1500 Watt",
+    "category": "Sound System",
+    "specification": "Power Mixer",
+    "quantity": 1,
+    "status": "Available",
+    "condition": "Good"
+    },
+
+    "Matsunaga":{
+    "brand": "Matsunaga",
+    "model": "Stabilizer",
+    "category": "Sound System",
+    "specification": "5000 VA include 2 electric plugs (@3 hole)",
+    "quantity": 2,
+    "status": "Available",
+    "condition": "Good"
+    },
+
+    "APC SUA750":{
+    "brand": "APC",
+    "model": "SUA750",
+    "category": "Sound System",
+    "specification": "500 Watt",
+    "quantity": 1,
+    "status": "Available",
+    "condition": "Good"
+    },
+
+    "roxone_mic_cable_8m": {
+    "brand": "Roxone",
+    "model":"Custom",
+    "category": "Audio Cabling",
+    "specification": "Mic Cable 8m",
+    "quantity": 21,
+    "status": "Available",
+    "condition": "Good"
+    },
+
+    "roxone_mic_cable_15m": {
+    "brand": "Roxone",
+    "model": "Custom",
+    "category": "Audio Cabling",
+    "specification": "Mic Cable 15m",
+    "quantity": 16,
+    "status": "Available",
+    "condition": "Good"
+    },
+
+    "roxone_mic_cable_28m": {
+    "brand": "Roxone",
+    "model": "Custom",
+    "category": "Audio Cabling",
+    "specification": "Mic Cable 28m",
+    "quantity": 2,
+    "status": "Available",
+    "condition": "Good"
+    },
+
+    "roxone_mic_cable_3m": {
+    "brand": "Roxone",
+    "model": "Custom",
+    "category": "Audio Cabling",
+    "specification": "Mic Cable 3m",
+    "quantity": 5,
+    "status": "Available",
+    "condition": "Good"
+    },
+
+    "roxone_instrument_cable_5m": {
+    "brand": "Roxone",
+    "model": "Custom",
+    "category": "Audio Cabling",
+    "specification": "Instrument Cable 5m",
+    "quantity": 5,
+    "status": "Available",
+    "condition": "Good"
+    },
+
+    "daddario_mic_cable_20ft": {
+    "brand": "D'Addario",
+    "model": "Standard",
+    "category": "Audio Cabling",
+    "specification": "Mic Cable 20 Ft",
+    "quantity": 6,
+    "status": "Available",
+    "condition": "Good"
+    },
+
+    "daddario_instrument_cable_20ft": {
+    "brand": "D'Addario",
+    "model": "Standard",
+    "category": "Audio Cabling",
+    "specification": "Instrument Cable 20 Ft",
+    "quantity": 4,
+    "status": "Available",
+    "condition": "Good"
+    },
+
+    "nutric_wireless_receiver_cable": {
+    "brand": "Nutric",
+    "model": "@1 mtr",
+    "category": "Audio Cabling",
+    "specification": "Mic Cable for Wireless Receiver Mic (SHURE)",
+    "quantity": 3,
+    "status": "Available",
+    "condition": "Good"
+    },
+
+    "aux_inear_cable": {
+    "brand": "Cable aux for in ear",
+    "model": "@2 mtr",
+    "category": "Audio Cabling",
+    "specification": "Male to Female 3.5mm",
+    "quantity": 5,
+    "status": "Available",
+    "condition": "Good"
+    },
+
+    "pv_playback_music": {
+    "brand": "PV",
+    "model": "Standard",
+    "category": "Audio Cabling",
+    "specification": "Playback Music",
+    "quantity": 2,
+    "status": "Available",
+    "condition": "Good"
+    },
+
+    "belden_cat5_60m": {
+    "brand": "Belden",
+    "model": "Cat 5",
+    "category": "Audio Cabling",
+    "specification": "Connector between S32 & X32, 60m with Cable Roll",
+    "quantity": 1,
+    "status": "Available",
+    "condition": "Good"
+    },
+
+    "belden_cat5_15m":{
+    "brand": "Belden",
+    "model": "Cat 5",
+    "category": "Audio Cabling",
+    "specification": "Connector between S32 & X32, 15m",
+    "quantity": 1,
+    "status": "Available",
+    "condition": "Good"
+    },
+
+    "electric_cable_3m": {
+    "brand": "Electric Cable",
+    "model": "3m",
+    "category": "Audio Cabling",
+    "specification": "Electric Cable 3m",
+    "quantity": 8,
+    "status": "Available",
+    "condition": "Good"
+    },
+
+    "electric_cable_10m": {
+    "brand": "Electric Cable",
+    "model": "10m",
+    "category": "Audio Cabling",
+    "specification": "Electric Cable 10m",
+    "quantity": 2,
+    "status": "Available",
+    "condition": "Good"
+    },
+
+    "yamaha_dtx6k2x": {
+    "brand": "Yamaha",
+    "model": "DTX 6K 2X",
+    "category": "Music Equipment",
+    "specification": "Yamaha DTX 6K 2X Pedal & Chair",
+    "quantity": 1,
+    "status": "Available",
+    "condition": "Good"
+    },
+
+    "roland_rd88": {
+    "brand": "Roland",
+    "model": "RD-88",
+    "category": "Music Equipment",
+    "specification": "Electric Piano including Stand & Sustain Pedal",
+    "quantity": 1,
+    "status": "Available",
+    "condition": "Good"
+    },
+
+    "taylor_acoustic_electric_guitar": {
+    "brand": "Accoustic Electric Guitar",
+    "model": "Taylor",
+    "category": "Music Equipment",
+    "specification": "Softcase",
+    "quantity": 1,
+    "status": "Available",
+    "condition": "Good"
+    },
+
+    "roland_kc500": {
+    "brand": "Roland",
+    "model": "KC500",
+    "category": "Music Equipment",
+    "specification": "Drum Amplifier",
+    "quantity": 1,
+    "status": "Available",
+    "condition": "Good"
+    },
+
+    "roland_cube120xl": {
+    "brand": "Roland",
+    "model": "Cube 120 XL",
+    "category": "Music Equipment",
+    "specification": "Bass Amplifier",
+    "quantity": 1,
+    "status": "Available",
+    "condition": "Good"
+    },
+
+    "boss_katana_100": {
+    "brand": "BOSS",
+    "model": "Katana 100 Watt(1x12)",
+    "category": "Music Equipment",
+    "specification": "Electric Guitar Amplifier 100W (1x12)",
+    "quantity": 1,
+    "status": "Available",
+    "condition": "Good"
+    },
+
+    "roland_ac60": {
+    "brand": "Roland",
+    "model": "AC60",
+    "category": "Music Equipment",
+    "specification": "Acoustic Electric Guitar Amplifier",
+    "quantity": 1,
+    "status": "Available",
+    "condition": "Good"
+    },
+
+    "behringer_ul1000g2": {
+    "brand": "Behringer Personal Monitor",
+    "model": "UL1000G2",
+    "category": "Music Equipment",
+    "specification": "Worship Leader Ear Monitor",
+    "quantity": 1,
+    "status": "Available",
+    "condition": "Good"
+    },
+
+    "recording_tech_iew200st": {
+    "brand": "Recording Tech",
+    "model": "IEW 200 ST",
+    "category": "Music Equipment",
+    "specification": "Singers' Ear Monitor",
+    "quantity": 2,
+    "status": "Available",
+    "condition": "Good"
+    },
+
+    "behringer_pm2": {
+    "brand": "Behringer Personal Monitor",
+    "model": "PM2",
+    "category": "Music Equipment",
+    "specification": "Compact Ear Monitor",
+    "quantity": 5,
+    "status": "Available",
+    "condition": "Good"
+    },
+
+    "nakamichi_wireless_mic": {
+    "brand": "Nakamichi",
+    "model": "Wireless 1 Bag Mic",
+    "category": "Music Equipment",
+    "specification": "Wireless Microphone for IC Kids Room",
+    "quantity": 2,
+    "status": "Available",
+    "condition": "Good"
+    },
+
+    "shure_dynamic_mic": {
+    "brand": "Shure",
+    "model": "Dynamic 1 Bag Mic",
+    "category": "Music Equipment",  
+    "specification": "Wired Dynamic Microphone",
+    "quantity": 2,
+    "status": "Available",
+    "condition": "Good"
+    },
+
+    "wireless_mc_preacher_mic": {
+    "brand": "Shure",
+    "model": "Wireless 1 Bag Mic",
+    "category": "Music Equipment",
+    "specification": "Wireless Microphone for MC & Preacher",
+    "quantity": 2,
+    "status": "Available",
+    "condition": "Good"
+    },
+
+    "wireless_wl_mic": {
+    "brand": "Shure",
+    "model": "Wireless 1 Bag Mic",
+    "category": "Music Equipment",
+    "specification": "Wireless Microphone for WL",
+    "quantity": 1,
+    "status": "Available",
+    "condition": "Good"
+    },
+
+    "wireless_singer_mic": {
+    "brand": "Shure",
+    "model": "Wireless 1 Bag Mic",
+    "category": "Music Equipment",
+    "specification": "Wireless Microphone for Singers",
+    "quantity": 2,
+    "status": "Available",
+    "condition": "Good"
+    },
+
+    "wireless_clip_mic": {
+    "brand": "Shure",
+    "model": "Wireless 1 Bag Clip Mic",
+    "category": "Music Equipment",
+    "specification": "Wireless Clip Microphone",
+    "quantity": 1,
+    "status": "Available",
+    "condition": "Good"
+    },
+
+    "microphone_stand": {
+    "brand": "Microphone Stand",
+    "model": "Microphone Stand",
+    "category": "Support",
+    "specification": "Microphone Stand",
+    "quantity": 5,
+    "status": "Available",
+    "condition": "Good"
+},
+
+"book_stand": {
+    "brand": "Book Stand",
+    "model": "Book Stand",
+    "category": "Support",
+    "specification": "Book Stand",
+    "quantity": 5,
+    "status": "Available",
+    "condition": "Good"
+},
+
+"bass_stand": {
+    "brand": "Bass Stand",
+    "model": "Bass Stand",
+    "category": "Support",
+    "specification": "Bass Guitar Stand",
+    "quantity": 1,
+    "status": "Available",
+    "condition": "Good"
+},
+
+"electric_guitar_stand": {
+    "brand": "Electric Guitar Stand",
+    "model": "Electric Guitar Stand",
+    "category": "Support",
+    "specification": "Electric Guitar Stand",
+    "quantity": 4,
+    "status": "Available",
+    "condition": "Good"
+},
+
+"speaker_stand": {
+    "brand": "Speaker Stand",
+    "model": "Speaker Stand",
+    "category": "Support",
+    "specification": "Speaker Stand",
+    "quantity": 4,
+    "status": "Available",
+    "condition": "Good"
+},
+
+"yamaha_dzr315_hardcase": {
+    "brand": "Yamaha",
+    "model": "DZR 315",
+    "category": "Support",
+    "specification": "Hardcase for Yamaha DZR315",
+    "quantity": 1,
+    "status": "Available",
+    "condition": "Good"
+},
+
+"yamaha_dxs18_hardcase": {
+    "brand": "Yamaha",
+    "model": "DXS 18",
+    "category": "Support",
+    "specification": "Hardcase for Yamaha DXS18",
+    "quantity": 2,
+    "status": "Available",
+    "condition": "Good"
+},
+
+"yamaha_dbr15_hardcase": {
+    "brand": "Yamaha",
+    "model": "DBR 15",
+    "category": "Support",
+    "specification": "Hardcase for Yamaha DBR15",
+    "quantity": 2,
+    "status": "Available",
+    "condition": "Good"
+},
+
+"behringer_x32_hardcase": {
+    "brand": "Behringer",
+    "model": "X32",
+    "category": "Support",
+    "specification": "Hardcase for Behringer X32 Mixer",
+    "quantity": 1,
+    "status": "Available",
+    "condition": "Good"
+},
+
+"behringer_s32_hardcase": {
+    "brand": "Behringer",
+    "model": "S32",
+    "category": "Support",
+    "specification": "Hardcase for Behringer S32 Stage Box",
+    "quantity": 1,
+    "status": "Available",
+    "condition": "Good"
+},
+
+"yamaha_dtx6k2x_hardcase": {
+    "brand": "Yamaha",
+    "model": "DTX 6K 2X Hardcase",
+    "category": "Support",
+    "specification": "Hardcase for Yamaha DTX 6K 2X",
+    "quantity": 1,
+    "status": "Available",
+    "condition": "Good"
+},
+
+"drum_throne_donner": {
+    "brand": "Drum Throne",
+    "model": "Donner",
+    "category": "Support",
+    "specification": "Drum Throne with Back Rest (Dark Blue)",
+    "quantity": 1,
+    "status": "Available",
+    "condition": "Good"
+},
+
+"roland_rd88_hardcase": {
+    "brand": "Roland",
+    "model": "RD-88 Hardcase",
+    "category": "Support",
+    "specification": "Hardcase for Roland RD-88",
+    "quantity": 1,
+    "status": "Available",
+    "condition": "Good"
+},
+
+"small_container_box": {
+    "brand": "Box Container",
+    "model": "Small",
+    "category": "Support",
+    "specification": "Instrument Cable Storage Case",
+    "quantity": 1,
+    "status": "Available",
+    "condition": "Good"
+},
+
+"medium_container_box": {
+    "brand": "Box Container",
+    "model": "Medium",
+    "category": "Support",
+    "specification": "Microphone Cable Storage Case",
+    "quantity": 1,
+    "status": "Available",
+    "condition": "Good"
+},
+
+"large_container_box": {
+    "brand": "Box Container",
+    "model": "Large",
+    "category": "Support",
+    "specification": "Electric Cable Storage Case",
+    "quantity": 1,
+    "status": "Available",
+    "condition": "Good"
+}
+}
+}

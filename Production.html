@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Production Tracker & Management System</title>
+
+<link rel="stylesheet" href="style.css">
+
+<!-- NO-FLICKER THEME PRELOAD -->
+<script>
+(function () {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+        document.documentElement.classList.add("dark");
+    }
+})();
+</script>
+
+</head>
+
+<body>
+
+<!-- ================= LOGIN PAGE ================= -->
+<div id="loginPage" class="login-page">
+
+    <div class="login-card">
+        <h2>Admin Login</h2>
+
+        <input type="email" id="email" placeholder="Email">
+        <input type="password" id="password" placeholder="Password">
+
+        <button id="loginBtn">Login</button>
+        <p id="loginError"></p>
+    </div>
+
+</div>
+
+
+<!-- ================= APP LAYOUT ================= -->
+<div class="layout" id="appLayout">
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="sidebar" id="sidebar">
+
+        <button id="Profiler" class="Profile"></button>
+
+        <div class="sidebar-title">
+            <h2>PET</h2>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href=""><span class="icon">📊</span><span class="label">Dashboard</span></a>
+            <a href="#"><span class="icon">📦</span><span class="label">Inventory</span></a>
+            <a href="#"><span class="icon">🎫</span><span class="label">Tickets</span></a>
+            <a href="#"><span class="icon">🛠️</span><span class="label">Maintenance</span></a>
+            <a href="#"><span class="icon">📄</span><span class="label">Reports</span></a>
+            <a href="#"><span class="icon">⚙️</span><span class="label">Settings</span></a>
+
+        </nav>
+
+        <button id="darkToggle">
+            <span id="themeIcon">🌙</span>
+            <span id="themeText">Dark Mode</span>
+        </button>
+
+        <button id="logoutBtn">Logout</button>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+    <main class="main">
+
+        <!-- ================= HEADER ================= -->
+        <header class="header">
+
+            <div class="header-center">
+                <img id="logo" src="logo-light.png" class="logo">
+                <h1>Production Equipment Tracker</h1>
+            </div>
+
+        </header>
+
+
+        <!-- ================= DASHBOARD ================= -->
+        <section class="dashboard">
+
+            <div class="card">
+                <h2 id="totalEquipment">0</h2>
+                <p>Total Equipment</p>
+            </div>
+
+            <div class="card">
+                <h2 id="availableEquipment">0</h2>
+                <p>Available</p>
+            </div>
+
+            <div class="card">
+                <h2 id="maintenanceEquipment">0</h2>
+                <p>Maintenance</p>
+            </div>
+
+            <div class="card">
+                <h2 id="brokenEquipment">0</h2>
+                <p>Needs Attention</p>
+            </div>
+
+        </section>
+
+
+<!-- ================= INVENTORY ================= -->
+<section class="inventory">
+
+    <div class="inventory-header">
+        <h2>Equipment List</h2>
+
+        <div class="inventory-actions">
+            <button id="openAddModal" class="add-btn">+ Add Equipment</button>
+            <button id="openTicketModal" class="add-btn">+ Add Ticket</button>
+        </div>
+    </div>
+
+    <input type="text" id="searchInput" placeholder="Search equipment...">
+
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Brand</th>
+                    <th>Model</th>
+                    <th>Category</th>
+                    <th>Quantity</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody id="equipmentTable"></tbody>
+        </table>
+    </div>
+
+</section>
+
+<!-- ================= EQUIPMENT MODAL ================= -->
+<div id="equipmentModal" class="modal">
+
+    <div class="modal-content">
+
+        <span id="closeModal" class="close">&times;</span>
+
+        <h2 id="modalTitle">Equipment</h2>
+        <p id="modalStatus">Status</p>
+
+        <div class="modal-actions">
+            <button id="useBtn">In Use</button>
+            <button id="returnBtn">Available</button>
+            <button id="maintenanceBtn">Maintenance</button>
+            <button id="brokenBtn">Broken</button>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= ADD EQUIPMENT MODAL ================= -->
+<div id="addEquipmentModal" class="modal">
+
+    <div class="modal-content">
+
+        <span id="closeAddModal" class="close">&times;</span>
+
+        <h2>Add New Equipment</h2>
+
+        <input type="text" id="addBrand" placeholder="Brand">
+        <input type="text" id="addModel" placeholder="Model">
+        <input type="text" id="addCategory" placeholder="Category">
+        <input type="number" id="addQty" placeholder="Quantity">
+
+        <select id="addStatus">
+            <option value="Available">Available</option>
+            <option value="In Use">In Use</option>
+            <option value="Maintenance">Maintenance</option>
+            <option value="Broken">Broken</option>
+        </select>
+
+        <button id="saveEquipmentBtn">Save Equipment</button>
+
+    </div>
+
+</div>
+
+
+<!-- ================= ADD TICKET MODAL ================= -->
+<div id="ticketModal" class="modal">
+
+    <div class="modal-content">
+
+        <span id="closeTicketModal" class="close">&times;</span>
+
+        <h2>Create Maintenance Ticket</h2>
+
+        <input type="text" id="tReporter" placeholder="Your Name">
+        <input type="text" id="tEquipment" list="equipmentList" placeholder="Equipment Name">
+
+        <textarea id="tIssue" placeholder="Describe the issue"></textarea>
+
+        <select id="tPriority">
+            <option value="Low">Low Priority</option>
+            <option value="Medium">Medium Priority</option>
+            <option value="High">High Priority</option>
+        </select>
+
+        <button id="submitTicketBtn">Submit Ticket</button>
+
+    </div>
+
+</div>
+
+
+<!-- ================= DATALIST ================= -->
+<datalist id="equipmentList"></datalist>
+
+<!-- ================= TOAST ================= -->
+<div id="toast" class="toast">Saved ✓</div>
+
+
+<!-- ================= SCRIPT ================= -->
+<script type="module" src="script.js"></script>
+
+</body>
+</html>

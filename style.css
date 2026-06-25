@@ -1,0 +1,477 @@
+
+/* ================= GLOBAL ================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f5f6f8;
+    color: #2f2f2f;
+    transition: 0.3s ease;
+    font-size: 15px;
+}
+
+/* ================= DARK MODE ================= */
+
+html.dark body {
+    background: radial-gradient(circle at top, #0a0a0a, #000);
+    color: #f2f5f3;
+}
+
+/* ================= SURFACES ================= */
+
+.header,
+.card,
+.table-wrapper,
+.ticketForm,
+.login-card,
+.modal-content {
+    background: rgba(255,255,255,0.9);
+    border-radius: 18px;
+    transition: 0.3s ease;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+/* DARK SURFACES */
+html.dark .header,
+html.dark .card,
+html.dark .table-wrapper,
+html.dark .ticketForm,
+html.dark .login-card,
+html.dark .modal-content {
+    background: rgba(20,20,20,0.9);
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* ================= HEADER ================= */
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* center block */
+.header-center {
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+html.dark .header {
+    background: #000;
+}
+
+/* ================= TEXT ================= */
+
+html.dark p,
+html.dark span,
+html.dark td,
+html.dark th,
+html.dark h1,
+html.dark h2,
+html.dark h3 {
+    color: #ffffff;
+}
+
+/* ================= LAYOUT ================= */
+
+.layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ================= SIDEBAR ================= */
+
+.sidebar {
+    width: 78px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 18px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: rgba(10,10,10,0.92);
+    backdrop-filter: blur(14px);
+    border-right: 1px solid rgba(255,255,255,0.06);
+    transition: width 0.35s ease;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.sidebar:hover {
+    width: 240px;
+}
+
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px;
+    border-radius: 12px;
+    color: white;
+    text-decoration: none;
+    transition: 0.25s ease;
+    white-space: nowrap;
+}
+
+.sidebar-nav .icon {
+    font-size: 20px;
+    min-width: 32px;
+    text-align: center;
+}
+
+.sidebar-nav .label {
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: 0.25s ease;
+}
+
+.sidebar:hover .label {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.sidebar-nav a:hover {
+    background: rgba(255,255,255,0.08);
+    transform: translateX(4px);
+}
+
+.sidebar-nav a.active {
+    background: rgba(47,107,79,0.6);
+}
+
+html.dark .sidebar {
+    background: rgba(0,0,0,0.85);
+    border-right: 1px solid rgba(255,255,255,0.08);
+}
+
+/* ================= MAIN ================= */
+
+.main {
+    flex: 1;
+    padding: 25px;
+    margin-left: 78px;
+    transition: margin-left 0.35s ease;
+}
+
+.sidebar:hover ~ .main {
+    margin-left: 240px;
+}
+
+/* ================= LOGO ================= */
+
+.logo {
+    width: 520px;
+    max-width: 90%;
+}
+
+/* ================= DASHBOARD ================= */
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 18px;
+    margin: 25px 0;
+}
+
+.card {
+    padding: 25px;
+    text-align: center;
+    font-size: 16px;
+    transition: 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+html.dark .card {
+    background: rgba(20,20,20,0.9);
+}
+
+/* ================= TABLE ================= */
+
+.table-wrapper {
+    padding: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+thead {
+    background: rgba(0,0,0,0.05);
+}
+
+html.dark thead {
+    background: rgba(255,255,255,0.05);
+}
+
+th, td {
+    padding: 14px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+html.dark th,
+html.dark td {
+    background: transparent;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+/* ================= INPUTS ================= */
+
+select.statusSelect {
+    padding: 6px;
+    border-radius: 8px;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+
+html.dark input,
+html.dark textarea,
+html.dark select {
+    background: #000;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* ================= BUTTON ================= */
+
+button {
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+/* ================= THEME BUTTON ================= */
+
+.theme-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s ease;
+
+    background: #ffffff;
+    color: #2f2f2f;
+}
+
+/* hover */
+.theme-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* DARK MODE BUTTON STYLE */
+html.dark .theme-btn {
+    background: #1b1b1b;
+    color: #ffffff;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* ================= ADD EQUIPMENT BUTTON ================= */
+
+.add-btn {
+    margin: 15px 0;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #2f6b4f, #2d6cdf);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.add-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* ================= MODAL BASE ================= */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal-content {
+    width: 420px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.close {
+    align-self: flex-end;
+    font-size: 22px;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.close:hover {
+    opacity: 1;
+}
+
+/* ================= STATUS BADGES ================= */
+
+.status {
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.status.Available { background: rgba(46,204,113,0.2); color: #2ecc71; }
+.status.Maintenance { background: rgba(241,196,15,0.2); color: #f1c40f; }
+.status.Broken { background: rgba(231,76,60,0.2); color: #e74c3c; }
+.status.InUse { background: rgba(52,152,219,0.2); color: #3498db; }
+
+/* ================= TOAST ================= */
+
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #000;
+    color: white;
+    padding: 12px 15px;
+    border-radius: 10px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: 0.3s ease;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ================= LOGIN ================= */
+
+.login-page {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f5f6f8;
+}
+
+html.dark .login-page {
+    background: #000;
+}
+
+/* ================= TICKET SYSTEM (NEW UPGRADE) ================= */
+
+.ticketSection {
+    margin-top: 25px;
+}
+
+.ticketHeader {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* Ticket modal reuse same system */
+#ticketModal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+#ticketModal .modal-content {
+    width: 420px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.ticket-add-btn {
+    margin: 15px 0;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #2f6b4f, #2d6cdf);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.ticket-add-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+html.dark #ticketModal .modal-content {
+    background: rgba(20,20,20,0.9);
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+
+    .sidebar {
+        width: 70px;
+    }
+
+    .sidebar:hover {
+        width: 200px;
+    }
+
+    .logo {
+        width: 380px;
+    }
+
+    .main {
+        margin-left: 70px;
+    }
+
+    .sidebar:hover ~ .main {
+        margin-left: 200px;
+    }
+
+    .modal-content {
+        width: 90%;
+    }
+}
