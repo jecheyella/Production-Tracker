@@ -1639,90 +1639,146 @@ PROFILE DARK MODE
 
 }
 
-.login-background{
-    min-height:100vh;
+/* PASSWORD EYE */
+
+.password-group{
     display:flex;
-    justify-content:center;
+    align-items:center;
+}
+
+
+.password-group input{
+    flex:1;
+}
+
+
+
+.password-toggle{
+
+    border:none;
+    background:none;
+
+    cursor:pointer;
+
+    display:flex;
     align-items:center;
 
+    color:#64748b;
+
+    padding:5px;
+
+}
+
+
+.password-toggle:hover{
+
+    color:#2563eb;
+
+}
+/* ============================= */
+/* LOGIN PAGE DESIGN */
+/* ============================= */
+
+
+.login-page{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+
     background:
+
+    radial-gradient(
+        circle at top left,
+        #2563eb,
+        transparent 40%
+    ),
+
     linear-gradient(
         135deg,
         #0f172a,
         #1e293b
     );
+
 }
+
+
+
 
 
 .login-card{
 
-    width:420px;
+
+    width:400px;
+
     padding:40px;
+
 
     background:white;
 
+
     border-radius:24px;
 
+
     box-shadow:
-    0 20px 50px rgba(0,0,0,.25);
 
-}
+    0 25px 60px rgba(0,0,0,.25);
 
 
-.brand-section{
     text-align:center;
+
+
+    animation:
+    fadeIn .5s ease;
+
+
 }
 
 
-.brand-section img{
 
-    width:90px;
 
-    margin-bottom:15px;
+.logo{
+
+    width:100px;
+
+    margin-bottom:20px;
 
 }
 
 
-.brand-section h1{
 
-    margin:0;
+
+
+.login-card h2{
+
 
     font-size:28px;
 
-}
+    margin-bottom:10px;
 
+    color:#0f172a;
 
-.brand-section p{
-
-    color:#64748b;
-
-}
-
-
-
-
-
-.login-header{
-
-    margin-top:35px;
 
 }
 
 
-.login-header h2{
-
-    font-size:24px;
-
-    margin-bottom:8px;
-
-}
 
 
-.login-header span{
+
+.login-subtitle{
+
 
     color:#64748b;
 
     font-size:14px;
+
+    margin-bottom:30px;
+
 
 }
 
@@ -1732,34 +1788,44 @@ PROFILE DARK MODE
 
 .input-group{
 
-    display:flex;
 
-    align-items:center;
+    background:#f8fafc;
 
-    gap:10px;
+    border:1px solid #e2e8f0;
 
-    margin-top:20px;
-
-    background:#f1f5f9;
-
-    padding:12px 16px;
 
     border-radius:14px;
 
+
+    padding:12px 16px;
+
+
+    margin-bottom:16px;
+
+
 }
+
+
+
 
 
 .input-group input{
 
-    flex:1;
+
+    width:100%;
+
 
     border:none;
+
 
     outline:none;
 
+
     background:none;
 
+
     font-size:15px;
+
 
 }
 
@@ -1767,71 +1833,173 @@ PROFILE DARK MODE
 
 
 
-.icon-btn{
+.login-options{
+
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+
+    font-size:13px;
+
+
+}
+
+
+
+
+
+.forgot-btn{
+
 
     border:none;
 
     background:none;
 
+
+    color:#2563eb;
+
+
     cursor:pointer;
 
-}
 
+}
 
 
 
 
 .login-btn{
 
-    width:100%;
 
     margin-top:25px;
 
-    padding:15px;
+
+    width:100%;
+
+
+    padding:14px;
+
 
     border:none;
 
+
     border-radius:14px;
+
 
     background:#2563eb;
 
+
     color:white;
+
 
     font-size:16px;
 
+
     font-weight:600;
+
 
     cursor:pointer;
 
-    display:flex;
 
-    justify-content:center;
+    transition:.3s;
 
-    align-items:center;
-
-    gap:8px;
 
 }
+
+
+
 
 
 .login-btn:hover{
 
+
     background:#1d4ed8;
+
+    transform:translateY(-2px);
+
 
 }
 
 
 
 
+.login-error{
 
-.login-footer{
 
-    text-align:center;
+    color:#dc2626;
 
-    margin-top:30px;
+    margin-top:15px;
+
+}
+
+
+
+
+@keyframes fadeIn{
+
+
+from{
+
+opacity:0;
+
+transform:translateY(20px);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:none;
+
+}
+
+
+}
+.dark .login-card{
+
+    background:#1e293b;
+
+}
+
+
+.dark .login-card h2{
+
+    color:white;
+
+}
+
+
+.dark .login-subtitle{
 
     color:#94a3b8;
 
-    font-size:12px;
+}
+
+
+.dark .input-group{
+
+    background:#0f172a;
+
+    border-color:#334155;
 
 }
+
+
+.dark .input-group input{
+
+    color:white;
+
+}
+
+
+.dark .password-toggle{
+
+    color:#94a3b8;
+
+}
+
