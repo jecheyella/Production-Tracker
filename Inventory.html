@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tickets | Production Equipment Tracker</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script>
+(function () {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+        document.documentElement.classList.add("dark");
+    }
+})();
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="layout">
+
+<!-- ================= SIDEBAR ================= -->
+
+<aside class="sidebar">
+
+<nav class="sidebar-nav">
+
+<a href="Profile.html">
+<span class="material-symbols-rounded">account_circle</span>
+<span class="label">Profile</span>
+</a>
+
+
+    <a href="Dashboard.html">
+        <span class="material-symbols-rounded">dashboard</span>
+        <span class="label">Dashboard</span>
+    </a>
+
+    <a href="Inventory.html">
+        <span class="material-symbols-rounded">inventory_2</span>
+        <span class="label">Inventory</span>
+    </a>
+
+    <a href="Tickets.html">
+        <span class="material-symbols-rounded">confirmation_number</span>
+        <span class="label">Tickets</span>
+    </a>
+
+    <a href="Maintenance.html">
+        <span class="material-symbols-rounded">build</span>
+        <span class="label">Maintenance</span>
+    </a>
+
+    <a href="History.html">
+        <span class="material-symbols-rounded">description</span>
+        <span class="label">History</span>
+    </a>
+
+    <a href="Settings.html">
+        <span class="material-symbols-rounded">settings</span>
+        <span class="label">Settings</span>
+    </a>
+
+</nav>
+
+        </nav>
+
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+    <main class="main">
+
+        <!-- ================= HEADER ================= -->
+        <header class="header">
+
+            <div class="header-center">
+                <img id="logo" src="logo-light.png" class="logo">
+                <h1>Production Equipment Tracker</h1>
+            </div>
+
+        </header>
+
+
+<!-- ================= INVENTORY ================= -->
+<section class="inventory">
+
+    <div class="inventory-header">
+        <h2>Equipment List</h2>
+
+    <input type="text" id="searchInput" placeholder="Search equipment...">
+
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Brand</th>
+                    <th>Model</th>
+                    <th>Category</th>
+                    <th>Quantity</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody id="equipmentTable"></tbody>
+        </table>
+    </div>
+
+</section>
+
+<!-- ================= EQUIPMENT MANAGER ================= -->
+
+<div id="equipmentModal" class="modal">
+
+    <div class="modal-content equipment-manager">
+
+        <span id="closeModal" class="close">&times;</span>
+
+        <h2>Equipment Manager</h2>
+
+        <hr>
+
+        <div class="equipment-info">
+
+            <p><strong>Brand</strong></p>
+            <p id="modalBrand">-</p>
+
+            <p><strong>Model</strong></p>
+            <p id="modalModel">-</p>
+
+            <p><strong>Category</strong></p>
+            <p id="modalCategory">-</p>
+
+            <p><strong>Quantity</strong></p>
+            <p id="modalQuantity">-</p>
+
+            <p><strong>Status</strong></p>
+            <p id="modalStatus">Available</p>
+
+        </div>
+
+        <hr>
+
+        <h3>Change Status</h3>
+
+        <div class="modal-actions">
+
+            <button id="returnBtn">🟢 Available</button>
+
+            <button id="useBtn">🔵 In Use</button>
+
+            <button id="maintenanceBtn">🟡 Maintenance</button>
+
+            <button id="brokenBtn">🔴 Broken</button>
+
+        </div>
+
+        <hr>
+
+        <h3>Equipment Actions</h3>
+
+        <div class="modal-actions">
+
+            <button id="editEquipmentBtn">
+                ✏ Edit
+            </button>
+
+            <button id="createTicketBtn">
+                📄 Create Ticket
+            </button>
+
+            <button id="deleteEquipmentBtn">
+                🗑 Delete
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= DATALIST ================= -->
+<datalist id="equipmentList"></datalist>
+
+<!-- ================= TOAST ================= -->
+<div id="toast" class="toast">Saved ✓</div>
+
+
+<!-- ================= SCRIPT ================= -->
+<script type="module" src="autho.js"></script>
+<script type="module" src="Inventory.js"></script>
+<script type="module" src="UI.js"></script>
+
+
+</body>
+</html>

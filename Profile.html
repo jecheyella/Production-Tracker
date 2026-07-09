@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tickets | Production Equipment Tracker</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script>
+(function () {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+        document.documentElement.classList.add("dark");
+    }
+})();
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="layout">
+        <!-- ================= MAIN ================= -->
+    <main class="main">
+
+        <!-- ================= HEADER ================= -->
+        <header class="header">
+
+            <div class="header-center">
+                <img id="logo" src="logo-light.png" class="logo">
+                <h1>Profile</h1>
+            </div>
+
+        </header>
+<!-- ================= SIDEBAR ================= -->
+
+<aside class="sidebar">
+
+<nav class="sidebar-nav">
+
+<a href="Profile.html" class="active">
+<span class="material-symbols-rounded">account_circle</span>
+<span class="label">Profile</span>
+</a>
+<a href="Dashboard.html">
+<span class="material-symbols-rounded">dashboard</span>
+<span class="label">Dashboard</span>
+</a>
+
+<a href="Inventory.html">
+<span class="material-symbols-rounded">inventory_2</span>
+<span class="label">Inventory</span>
+</a>
+
+<a href="Tickets.html">
+<span class="material-symbols-rounded">confirmation_number</span>
+<span class="label">Tickets</span>
+</a>
+
+<a href="Maintenance.html">
+<span class="material-symbols-rounded">build</span>
+<span class="label">Maintenance</span>
+</a>
+
+<a href="History.html">
+<span class="material-symbols-rounded">history</span>
+<span class="label">History</span>
+</a>
+
+<a href="Settings.html">
+<span class="material-symbols-rounded">settings</span>
+<span class="label">Settings</span>
+</a>
+
+</nav>
+
+</aside>
+
+
+<!-- ================= PROFILE ================= -->
+
+<section class="profile-container">
+
+    <div class="card profile-card">
+
+
+        <!-- PROFILE TOP -->
+        <div class="profile-cover"></div>
+
+
+        <div class="profile-content">
+
+
+            <div class="profile-avatar-wrapper">
+
+                <img
+                    src="ICB.jpeg"
+                    alt="Profile"
+                    class="profile-avatar">
+
+                <span class="profile-online"></span>
+
+            </div>
+
+
+
+            <h2 id="userName">
+                Loading...
+            </h2>
+
+
+            <p id="userEmail">
+                Loading...
+            </p>
+
+
+
+            <div class="profile-badge">
+
+                <span class="material-symbols-rounded">
+                    shield_person
+                </span>
+
+                Administrator
+
+            </div>
+
+
+
+            <div class="profile-divider"></div>
+
+
+
+            <!-- INFORMATION -->
+
+            <div class="profile-details">
+
+
+                <div class="detail-card">
+
+                    <span class="material-symbols-rounded">
+                        admin_panel_settings
+                    </span>
+
+
+                    <div>
+
+                        <small>
+                            Account Role
+                        </small>
+
+                        <strong>
+                            Administrator
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="detail-card">
+
+                    <span class="material-symbols-rounded">
+                        check_circle
+                    </span>
+
+
+                    <div>
+
+                        <small>
+                            Current Status
+                        </small>
+
+                        <strong class="online-text">
+                            Online
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- LOGOUT -->
+
+            <button
+                id="profileLogoutBtn"
+                class="danger-btn">
+
+
+                <span class="material-symbols-rounded">
+                    logout
+                </span>
+
+                Logout
+
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+</section>
+<script type="module" src="autho.js"></script>
+<script type="module" src="UI.js"></script>
+<script type="module" src="Profile.js"></script>
+
+</main>
+</div>
+</body>
+</html>

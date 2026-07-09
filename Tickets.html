@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tickets | Production Equipment Tracker</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script>
+(function () {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+        document.documentElement.classList.add("dark");
+    }
+})();
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="layout">
+
+<!-- ================= SIDEBAR ================= -->
+
+<aside class="sidebar">
+
+<nav class="sidebar-nav">
+
+<a href="Profile.html">
+<span class="material-symbols-rounded">account_circle</span>
+<span class="label">Profile</span>
+</a>
+
+<a href="Dashboard.html">
+<span class="material-symbols-rounded">dashboard</span>
+<span class="label">Dashboard</span>
+</a>
+
+<a href="Inventory.html">
+<span class="material-symbols-rounded">inventory_2</span>
+<span class="label">Inventory</span>
+</a>
+
+<a href="Tickets.html" class="active">
+<span class="material-symbols-rounded">confirmation_number</span>
+<span class="label">Tickets</span>
+</a>
+
+<a href="Maintenance.html">
+<span class="material-symbols-rounded">build</span>
+<span class="label">Maintenance</span>
+</a>
+
+<a href="History.html">
+<span class="material-symbols-rounded">history</span>
+<span class="label">History</span>
+</a>
+
+<a href="Settings.html">
+<span class="material-symbols-rounded">settings</span>
+<span class="label">Settings</span>
+</a>
+
+</nav>
+
+</aside>
+
+<!-- ================= MAIN ================= -->
+
+<main class="main">
+
+<header class="header">
+
+<div class="header-center">
+
+<img id="logo" src="logo-light.png" class="logo">
+
+<h1>Maintenance Tickets</h1>
+
+</div>
+
+</header>
+
+<section class="inventory">
+
+<div class="inventory-header">
+
+<h2>Maintenance Tickets</h2>
+
+<div class="inventory-actions">
+
+<button id="openTicketModal" class="add-btn">
++ Create Ticket
+</button>
+
+</div>
+
+</div>
+
+<input
+type="text"
+id="searchTicket"
+placeholder="Search tickets...">
+
+<div class="table-wrapper">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>ID</th>
+<th>Equipment</th>
+<th>Reporter</th>
+<th>Priority</th>
+<th>Status</th>
+<th>Date</th>
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="ticketTable"></tbody>
+
+</table>
+
+</div>
+
+</section>
+
+</main>
+
+</div>
+
+<!-- ================= CREATE MODAL ================= -->
+
+<div id="ticketModal" class="modal">
+
+<div class="modal-content">
+
+<span id="closeTicketModal" class="close">&times;</span>
+
+<h2>Create Maintenance Ticket</h2>
+
+<input
+id="tReporter"
+type="text"
+placeholder="Reporter Name">
+
+<input
+id="tEquipment"
+list="equipmentList"
+type="text"
+placeholder="Equipment">
+
+<datalist id="equipmentList"></datalist>
+
+<textarea
+id="tIssue"
+placeholder="Describe the issue"></textarea>
+
+<select id="tPriority">
+
+<option value="Low">Low</option>
+<option value="Medium">Medium</option>
+<option value="High">High</option>
+
+</select>
+
+<button id="submitTicketBtn">
+
+Create Ticket
+
+</button>
+
+</div>
+
+</div>
+
+<!-- ================= DETAILS MODAL ================= -->
+
+<div id="ticketDetailsModal" class="modal">
+
+<div class="modal-content">
+
+<span id="closeDetailsModal" class="close">&times;</span>
+
+<h2>Ticket Details</h2>
+
+<p><b>Ticket ID:</b> <span id="ticketId"></span></p>
+
+<p><b>Equipment:</b> <span id="ticketEquipment"></span></p>
+
+<p><b>Reporter:</b> <span id="ticketReporter"></span></p>
+
+<p><b>Issue:</b> <span id="ticketIssue"></span></p>
+
+<p><b>Priority:</b> <span id="ticketPriority"></span></p>
+
+<p><b>Status:</b> <span id="ticketStatus"></span></p>
+
+<div class="modal-actions">
+
+<button id="startBtn">
+Start Repair
+</button>
+
+<button id="completeBtn">
+Complete Repair
+</button>
+
+<button id="brokenBtn">
+Mark Broken
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div id="toast" class="toast">
+
+Saved ✓
+
+</div>
+
+<script type="module" src="firebase-config.js"></script>
+<script type="module" src="UI.js"></script>
+<script type="module" src="tickets.js"></script>
+<script type="module" src="autho.js"></script>
+
+
+</body>
+</html>

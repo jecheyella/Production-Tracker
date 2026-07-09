@@ -1,0 +1,1640 @@
+
+/* ================= GLOBAL ================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f5f6f8;
+    color: #2f2f2f;
+    transition: 0.3s ease;
+    font-size: 15px;
+}
+
+/* ================= DARK MODE ================= */
+
+html.dark body {
+    background: radial-gradient(circle at top, #0a0a0a, #000);
+    color: #f2f5f3;
+}
+
+/* ================= SURFACES ================= */
+
+.header,
+.card,
+.table-wrapper,
+.ticketForm,
+.login-card,
+.modal-content {
+    background: rgba(255,255,255,0.9);
+    border-radius: 18px;
+    transition: 0.3s ease;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+/* DARK SURFACES */
+html.dark .header,
+html.dark .card,
+html.dark .table-wrapper,
+html.dark .ticketForm,
+html.dark .login-card,
+html.dark .modal-content {
+    background: rgba(20,20,20,0.9);
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* ================= HEADER ================= */
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.header h1{
+    margin: up 15px;
+    margin-bottom: 15px;
+}
+
+/* center block */
+.header-center {
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+html.dark .header {
+    background: #000;
+}
+
+/* ================= TEXT ================= */
+
+html.dark p,
+html.dark span,
+html.dark td,
+html.dark th,
+html.dark h1,
+html.dark h2,
+html.dark h3 {
+    color: #ffffff;
+}
+
+/* ================= LAYOUT ================= */
+
+.layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar {
+    width: 88px;
+    height: 100vh;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    padding: 16px 8px;
+
+    display: flex;
+    flex-direction: column;
+
+    background: #2f6b4f;
+
+    transition: width 0.3s ease;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.sidebar:hover {
+    width: 220px;
+}
+
+/* NAVIGATION */
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* LINKS */
+
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* center when collapsed */
+
+    width: 100%;
+    height: 48px;
+
+    color: white;
+    text-decoration: none;
+
+    border-radius: 12px;
+
+    transition: all 0.25s ease;
+}
+
+/* ALIGN LEFT WHEN EXPANDED */
+
+.sidebar:hover .sidebar-nav a {
+    justify-content: flex-start;
+    padding-left: 16px;
+}
+
+/* PROFILE */
+
+.profile-link {
+    margin-bottom: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+/* ICONS */
+
+.sidebar-nav .material-symbols-rounded {
+    font-size: 24px;
+
+    width: 24px;
+    min-width: 24px;
+
+    text-align: center;
+
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24;
+}
+
+/* LABELS */
+
+.sidebar-nav .label {
+    opacity: 0;
+    width: 0;
+
+    overflow: hidden;
+    white-space: nowrap;
+
+    margin-left: 0;
+
+    transition: all 0.25s ease;
+}
+
+/* SHOW LABELS ON HOVER */
+
+.sidebar:hover .label {
+    opacity: 1;
+    width: auto;
+    margin-left: 14px;
+}
+
+/* HOVER */
+
+.sidebar-nav a:hover {
+    background: rgba(255,255,255,0.12);
+}
+
+/* ACTIVE */
+
+.sidebar-nav a.active {
+    background: rgba(255,255,255,0.18);
+}
+
+/* DARK MODE */
+
+html.dark .sidebar {
+    background: #111827;
+}
+
+/* ================= MAIN ================= */
+
+.main {
+    flex: 1;
+    padding: 25px;
+    margin-left: 78px;
+    transition: margin-left 0.35s ease;
+}
+
+.sidebar:hover ~ .main {
+    margin-left: 240px;
+}
+
+/* ================= LOGO ================= */
+
+.logo {
+    width: 520px;
+    max-width: 90%;
+}
+
+/* ================= DASHBOARD ================= */
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 18px;
+    margin: 25px 0;
+}
+
+.card {
+    padding: 25px;
+    text-align: center;
+    font-size: 16px;
+    transition: 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+html.dark .card {
+    background: rgba(20,20,20,0.9);
+}
+
+/* ================= TABLE ================= */
+
+.table-wrapper {
+    padding: 15px;
+    margin-top: 25px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+thead {
+    background: rgba(255,255,255,0.05);
+}
+
+html.dark thead {
+    background: rgba(255,255,255,0.05);
+}
+
+th, td {
+    padding: 14px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+html.dark th,
+html.dark td {
+    background: transparent;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+/* ================= INPUTS ================= */
+
+select.statusSelect {
+    padding: 6px;
+    border-radius: 8px;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+
+html.dark input,
+html.dark textarea,
+html.dark select {
+    background: #000;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* ================= BUTTON ================= */
+
+button {
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+/* ================= TABLE HISTORY BUTTON ================= */
+.delete-btn{
+    width:36px;
+    height:36px;
+    border:none;
+    border-radius:50%;
+    background:#c0392b;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+}
+
+.delete-btn:hover{
+    background:#a93226;
+}
+
+.delete-btn .material-symbols-rounded{
+    font-size:20px;
+}
+/* ================= THEME BUTTON ================= */
+
+.theme-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s ease;
+
+    background: #ffffff;
+    color: #2f2f2f;
+}
+
+/* hover */
+.theme-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* DARK MODE BUTTON STYLE */
+html.dark .theme-btn {
+    background: #1b1b1b;
+    color: #ffffff;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* ================= ADD EQUIPMENT BUTTON ================= */
+
+.add-btn {
+    margin: 15px 0;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #2f6b4f, #2d6cdf);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.add-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* ================= MODAL BASE ================= */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal-content {
+    width: 420px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.close {
+    align-self: flex-end;
+    font-size: 22px;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.close:hover {
+    opacity: 1;
+}
+
+/* ================= STATUS BADGES ================= */
+
+.status {
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.status.Available { background: rgba(46,204,113,0.2); color: #2ecc71; }
+.status.Maintenance { background: rgba(241,196,15,0.2); color: #f1c40f; }
+.status.Broken { background: rgba(231,76,60,0.2); color: #e74c3c; }
+.status.InUse { background: rgba(52,152,219,0.2); color: #3498db; }
+
+/* ================= TOAST ================= */
+
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #000;
+    color: white;
+    padding: 12px 15px;
+    border-radius: 10px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: 0.3s ease;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ================= LOGIN ================= */
+
+.login-page {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #f3f4f6;
+}
+
+/* CARD */
+
+.login-card {
+    width: 520px;
+    max-width: 92%;
+
+    padding: 55px 50px;
+
+    text-align: center;
+
+    background: #ffffff;
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.08);
+
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* BIGGER LOGO */
+
+.login-logo {
+    width: 350px;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+/* TITLE */
+
+.login-card h2 {
+    font-size: 30px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.login-subtitle {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 35px;
+}
+
+/* INPUTS */
+
+.login-card input {
+    width: 100%;
+    padding: 16px 18px;
+
+    margin-bottom: 16px;
+
+    border: 1px solid #e4e4e4;
+    border-radius: 14px;
+
+    background: #fafafa;
+
+    font-size: 15px;
+}
+
+.login-card input:focus {
+    border-color: #2f6b4f; /* logo green */
+    box-shadow: 0 0 0 4px rgba(47,107,79,0.12);
+}
+
+/* BUTTON */
+
+#loginBtn {
+    width: 100%;
+    padding: 16px;
+
+    border: none;
+    border-radius: 14px;
+
+    background: #2f6b4f; /* same as logo */
+
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+#loginBtn:hover {
+    background: #25553e;
+}
+
+/* ERROR */
+
+#loginError {
+    margin-top: 15px;
+    color: #e74c3c;
+}
+
+/* DARK MODE */
+
+html.dark .login-page {
+    background: #0f1115;
+}
+
+html.dark .login-card {
+    background: #17191d;
+    border: 1px solid rgba(255,255,255,0.06);
+    box-shadow: none;
+}
+
+html.dark .login-card h2 {
+    color: white;
+}
+
+html.dark .login-subtitle {
+    color: #9ca3af;
+}
+
+html.dark .login-card input {
+    background: #111317;
+    border: 1px solid #2b2f36;
+    color: white;
+}
+
+/* ================= TICKET SYSTEM (NEW UPGRADE) ================= */
+
+.ticketSection {
+    margin-top: 25px;
+}
+
+.ticketHeader {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* Ticket modal reuse same system */
+#ticketModal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+#ticketModal .modal-content {
+    width: 420px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.ticket-add-btn {
+    margin: 15px 0;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #2f6b4f, #2d6cdf);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.ticket-add-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+html.dark #ticketModal .modal-content {
+    background: rgba(20,20,20,0.9);
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+
+    .sidebar {
+        width: 70px;
+    }
+
+    .sidebar:hover {
+        width: 200px;
+    }
+
+    .logo {
+        width: 380px;
+    }
+
+    .main {
+        margin-left: 70px;
+    }
+
+    .sidebar:hover ~ .main {
+        margin-left: 200px;
+    }
+
+    .modal-content {
+        width: 90%;
+    }
+}
+
+/* ================= SETTINGS ================= */
+
+.settings {
+    padding: 30px;
+}
+
+.settings h2 {
+    font-size: 30px;
+    margin-bottom: 25px;
+    color: var(--text-color);
+}
+
+/* ================= SETTINGS CARD ================= */
+
+.settings-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.settings-card h3 {
+    margin-bottom: 20px;
+    color: #2f6b4f;
+    font-size: 22px;
+}
+
+/* ================= SETTING ITEM ================= */
+
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 18px 0;
+
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.setting-item:last-child {
+    border-bottom: none;
+}
+
+.setting-item h4 {
+    margin: 0;
+    font-size: 17px;
+    color: var(--text-color);
+}
+
+.setting-item p {
+    margin-top: 5px;
+    color: #777;
+    font-size: 14px;
+}
+
+/* ================= BUTTONS ================= */
+
+.secondary-btn {
+    background: #2f6b4f;
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+
+    padding: 10px 18px;
+
+    cursor: pointer;
+    transition: .3s;
+}
+
+.secondary-btn:hover {
+    background: #24553e;
+}
+
+.danger-btn {
+    background: #d9534f;
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+
+    padding: 10px 18px;
+
+    cursor: pointer;
+    transition: .3s;
+}
+
+.danger-btn:hover {
+    background: #b63f3c;
+}
+
+/* ================= TOGGLE SWITCH ================= */
+
+.switch {
+    position: relative;
+    display: inline-block;
+
+    width: 55px;
+    height: 28px;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+
+    cursor: pointer;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background: #ccc;
+
+    border-radius: 30px;
+
+    transition: .3s;
+}
+
+.slider::before {
+    content: "";
+
+    position: absolute;
+
+    height: 22px;
+    width: 22px;
+
+    left: 3px;
+    bottom: 3px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    transition: .3s;
+}
+
+.switch input:checked + .slider {
+    background: #2f6b4f;
+}
+
+.switch input:checked + .slider::before {
+    transform: translateX(27px);
+}
+
+/* ===========================
+EQUIPMENT MANAGER
+=========================== */
+
+#equipmentModal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(18,22,26,.55);
+    backdrop-filter:blur(6px);
+    justify-content:center;
+    align-items:center;
+    z-index:3000;
+}
+
+#equipmentModal .equipment-manager{
+    width:390px;
+    max-width:90%;
+    padding:20px;
+    background:#ffffff;
+    border-radius:22px;
+
+    border:1px solid rgba(47,107,79,.08);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.12),
+        0 2px 8px rgba(0,0,0,.05);
+
+    display:flex;
+    flex-direction:column;
+    gap: 12px;
+
+    animation:popup .25s ease;
+}
+
+html.dark #equipmentModal .equipment-manager{
+    background:#1f2125;
+    border:1px solid rgba(255,255,255,.06);
+    color:#fff;
+}
+
+@keyframes popup{
+    from{
+        opacity:0;
+        transform:translateY(20px) scale(.97);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+/* Title */
+
+.equipment-manager h2{
+    margin:0;
+    text-align:center;
+    font-size:22px;
+    font-weight:700;
+    color:#2f6b4f;
+}
+
+html.dark .equipment-manager h2{
+    color:#8fd8b0;
+}
+
+.equipment-manager hr{
+    border:none;
+    height:1px;
+    margin:4px 0 8px;
+    background:#ececec;
+}
+
+html.dark .equipment-manager hr{
+    background:#343434;
+}
+
+/* Form */
+
+.equipment-form{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.form-row label{
+    font-size:12px;
+    font-weight:600;
+    margin-bottom:6px;
+    color:#666;
+}
+
+html.dark .form-row label{
+    color:#d5d5d5;
+}
+
+.form-row input{
+    width:100%;
+    padding:9px 12px;
+    border:none;
+    border-radius:10px;
+    background:#f7f8fa;
+    font-size:13px;
+    transition:.25s;
+}
+
+.form-row input:focus{
+    outline:none;
+    box-shadow:0 0 0 3px rgba(47,107,79,.15);
+}
+
+html.dark .form-row input{
+    background:#2c2d31;
+    color:white;
+}
+
+/* Buttons */
+
+.modal-actions{
+    display:flex;
+    gap:10px;
+    justify-content:center;
+    flex-wrap:wrap;
+    margin-top:8px;
+}
+
+.modal-actions button{
+    min-width:80px;
+    height:32px;
+
+    padding:5px 10px;
+
+    border:none;
+    border-radius:8px;
+
+    color:#fff;
+    font-size:11px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s ease;
+}
+
+.modal-actions button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 24px rgba(0,0,0,.18);
+}
+
+#returnBtn{
+    background:linear-gradient(135deg,#2f6b4f,#53a477);
+}
+
+#useBtn{
+    background:linear-gradient(135deg,#2d6cdf,#5f9dff);
+}
+
+#editEquipmentBtn{
+    background:linear-gradient(135deg,#f5a623,#ffc44d);
+}
+
+#deleteEquipmentBtn{
+    background:linear-gradient(135deg,#dc3545,#ff6974);
+}
+
+.modal-note{
+    text-align:center;
+    font-size:12px;
+    color:#8a8a8a;
+}
+
+html.dark .modal-note{
+    color:#b7b7b7;
+}
+
+/* ================= Note ================= */
+
+.modal-note{
+    margin-top:20px;
+    text-align:center;
+    font-size:13px;
+    color:#777;
+}
+
+.dark .modal-note{
+    color:#bfbfbf;
+}
+/* ================= DARK MODE ================= */
+
+.dark .settings-card {
+    background: #1f1f1f;
+}
+
+.dark .setting-item {
+    border-bottom: 1px solid #333;
+}
+
+.dark .setting-item p {
+    color: #bbbbbb;
+}
+
+.dark .settings-card h3 {
+    color: #7fd8a6;
+}
+
+.dark .secondary-btn {
+    background: #3f8f69;
+}
+
+.dark .secondary-btn:hover {
+    background: #56a77f;
+}
+
+/* ===========================
+   TICKET DETAIL ACTION BUTTONS
+=========================== */
+
+#ticketDetailsModal .modal-actions{
+    display:flex;
+    gap:12px;
+    margin-top:20px;
+}
+
+#ticketDetailsModal .modal-actions button{
+    flex:1;
+    height:40px;
+    padding:10px 15px;
+
+    border:none;
+    border-radius:10px;
+
+    color:white;
+    font-size:14px;
+    font-weight:600;
+
+    cursor:pointer;
+}
+
+
+/* Start Repair */
+#ticketDetailsModal #startBtn{
+    background:#d7a95f;
+}
+
+#ticketDetailsModal #startBtn:hover{
+    background:#d88c10;
+}
+
+
+/* Complete Repair */
+#ticketDetailsModal #completeBtn{
+    background:#336a50;
+}
+
+#ticketDetailsModal #completeBtn:hover{
+    background:#24553e;
+}
+
+/* Mark Broken */
+#brokenBtn{
+    background:linear-gradient(135deg,#dc3545,#ff6974);
+}
+
+#brokenBtn:hover{
+    transform:translateY(-3px);
+}
+
+/* ===========================
+PROFILE DESIGN
+=========================== */
+
+
+.profile-container{
+
+    min-height:70vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px;
+
+}
+
+
+
+/* ===========================
+PROFILE CARD
+=========================== */
+
+
+.profile-card{
+
+    position:relative;
+
+    width:390px;
+
+    overflow:hidden;
+
+    border-radius:28px;
+
+    padding:0;
+
+    background:white;
+
+    box-shadow:
+        0 20px 40px rgba(0,0,0,0.12),
+        0 5px 15px rgba(47,107,79,0.08);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+
+}
+
+
+
+.profile-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:
+
+        0 30px 55px rgba(0,0,0,0.16),
+
+        0 8px 25px rgba(47,107,79,0.15);
+
+}
+
+
+
+/* ===========================
+GREEN COVER
+=========================== */
+
+
+.profile-cover{
+
+    height:110px;
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #2f6b4f,
+        #4d956d
+    );
+
+}
+
+
+
+/* ===========================
+CONTENT
+=========================== */
+
+
+.profile-content{
+
+    padding:
+
+    0 35px 35px;
+
+    text-align:center;
+
+}
+
+
+
+/* ===========================
+AVATAR
+=========================== */
+
+
+.profile-avatar-wrapper{
+
+    width:120px;
+
+    height:120px;
+
+    margin:-60px auto 15px;
+
+    position:relative;
+
+}
+
+
+
+.profile-avatar{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    border:
+
+    5px solid white;
+
+
+    box-shadow:
+
+    0 8px 25px rgba(0,0,0,.18);
+
+}
+
+
+
+.profile-online{
+
+    position:absolute;
+
+    right:8px;
+
+    bottom:10px;
+
+    width:20px;
+
+    height:20px;
+
+    background:#22c55e;
+
+    border-radius:50%;
+
+    border:
+
+    4px solid white;
+
+}
+
+
+
+/* ===========================
+USER TEXT
+=========================== */
+
+
+.profile-content h2{
+
+    margin:
+
+    10px 0 5px;
+
+
+    font-size:26px;
+
+    font-weight:700;
+
+}
+
+
+
+.profile-content p{
+
+    margin:0;
+
+    opacity:.65;
+
+    font-size:14px;
+
+}
+
+
+
+/* ===========================
+ROLE BADGE
+=========================== */
+
+
+.profile-badge{
+
+    margin:
+
+    20px auto;
+
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+
+    gap:8px;
+
+
+    width:max-content;
+
+
+    padding:
+
+    8px 16px;
+
+
+    border-radius:30px;
+
+
+    background:
+
+    rgba(47,107,79,.12);
+
+
+    color:#2f6b4f;
+
+
+    font-size:14px;
+
+
+    font-weight:600;
+
+}
+
+
+
+.profile-badge span{
+
+    font-size:20px;
+
+}
+
+
+
+/* ===========================
+DIVIDER
+=========================== */
+
+
+.profile-divider{
+
+    height:1px;
+
+    background:#ddd;
+
+    margin:
+
+    25px 0;
+
+}
+
+
+
+/* ===========================
+DETAIL CARDS
+=========================== */
+
+
+.profile-details{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+}
+
+
+
+.detail-card{
+
+    display:flex;
+
+    align-items:center;
+
+
+    gap:15px;
+
+
+    padding:16px;
+
+
+    border-radius:18px;
+
+
+    background:
+
+    rgba(47,107,79,.07);
+
+
+    text-align:left;
+
+
+    transition:.25s ease;
+
+}
+
+
+
+.detail-card:hover{
+
+    transform:translateX(5px);
+
+    background:
+
+    rgba(47,107,79,.12);
+
+}
+
+
+
+.detail-card span{
+
+    font-size:30px;
+
+    color:#2f6b4f;
+
+}
+
+
+
+.detail-card small{
+
+    display:block;
+
+    opacity:.6;
+
+    font-size:12px;
+
+}
+
+
+
+.detail-card strong{
+
+    font-size:15px;
+
+}
+
+
+
+.online-text{
+
+    color:#22c55e;
+
+}
+
+
+
+/* ===========================
+LOGOUT BUTTON
+=========================== */
+
+
+.profile-card .danger-btn{
+
+
+    margin-top:25px;
+
+
+    width:100%;
+
+
+    height:48px;
+
+
+    border-radius:15px;
+
+
+    display:flex;
+
+
+    justify-content:center;
+
+
+    align-items:center;
+
+
+    gap:8px;
+
+
+    font-weight:600;
+
+
+    transition:.25s ease;
+
+}
+
+
+
+.profile-card .danger-btn:hover{
+
+    transform:translateY(-2px);
+
+}
+
+/* ===========================
+PROFILE DARK MODE
+=========================== */
+
+.dark .profile-card{
+
+    background:#242424;
+
+    color:#ffffff;
+
+    box-shadow:
+        0 20px 40px rgba(0,0,0,.45),
+        0 8px 25px rgba(0,0,0,.25);
+
+}
+
+
+/* Profile name */
+
+.dark .profile-content h2{
+
+    color:#ffffff;
+
+}
+
+
+/* Email */
+
+.dark .profile-content p{
+
+    color:#bdbdbd;
+
+}
+
+
+
+/* Avatar border */
+
+.dark .profile-avatar{
+
+    border-color:#242424;
+
+}
+
+
+
+/* Online dot */
+
+.dark .profile-online{
+
+    border-color:#242424;
+
+}
+
+
+
+/* Divider */
+
+.dark .profile-divider{
+
+    background:#444;
+
+}
+
+
+
+/* Information boxes */
+
+.dark .detail-card{
+
+    background:#2d2d2d;
+
+    color:white;
+
+}
+
+
+
+.dark .detail-card:hover{
+
+    background:#353535;
+
+}
+
+
+
+/* Icons */
+
+.dark .detail-card span{
+
+    color:#6fb98f;
+
+}
+
+
+
+/* Small labels */
+
+.dark .detail-card small{
+
+    color:#aaa;
+
+}
+
+
+
+/* Role badge */
+
+.dark .profile-badge{
+
+    background:rgba(111,185,143,.15);
+
+    color:#8fd3ad;
+
+}
+
+
+
+/* Logout button stays red */
+
+.dark .danger-btn{
+
+    color:white;
+
+}
