@@ -1,98 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Production Equipment Tracker & Management System</title>
+<title>Production Equipment Tracker & Management System</title>
 
-    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
 
-    <!-- Google Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet">
+<!-- Google Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet">
 
-    <!-- Prevent Theme Flicker -->
-    <script>
-    (function () {
-        const savedTheme = localStorage.getItem("theme");
-        if (savedTheme === "dark") {
-            document.documentElement.classList.add("dark");
-        }
-    })();
-    </script>
+<!-- Prevent Theme Flicker -->
+<script>
+(function () {
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "dark") {
+        document.documentElement.classList.add("dark");
+    }
+})();
+</script>
 
 </head>
 
+
 <body>
 
-<div id="loginPage" class="login-page">
 
-    <div class="login-card">
+<div class="login-background">
 
-        <img
-            src="logo-light.png"
-            alt="PET Logo"
-            class="login-logo"
-            id="loginLogo"
-        >
 
-        <h2>Welcome Home!</h2>
+    <div id="loginPage" class="login-page">
 
-        <p class="login-subtitle">
-            Production Equipment Tracker & Management System
-        </p>
 
-        <div class="input-group">
-            <input
+        <div class="login-card">
+
+
+            <!-- BRAND -->
+            <div class="brand-section">
+
+                <img 
+                id="logo" 
+                src="logo-light.png" 
+                class="logo"
+                alt="Company Logo">
+
+
+                <h1>
+                    Production Tracker
+                </h1>
+
+                <p>
+                    Equipment Monitoring & Management System
+                </p>
+
+            </div>
+
+
+
+            <!-- LOGIN TITLE -->
+            <div class="login-header">
+
+                <h2>
+                    Welcome Back 👋
+                </h2>
+
+                <span>
+                    Sign in to continue managing your equipment
+                </span>
+
+            </div>
+
+
+
+            <!-- EMAIL -->
+            <div class="input-group">
+
+                <span class="material-symbols-rounded">
+                    mail
+                </span>
+
+                <input
                 type="email"
                 id="email"
                 placeholder="Email Address"
-                autocomplete="email"
-            >
-        </div>
+                autocomplete="email">
 
-        <div class="input-group">
-            <input
+            </div>
+
+
+
+            <!-- PASSWORD -->
+            <div class="input-group">
+
+                <span class="material-symbols-rounded">
+                    lock
+                </span>
+
+
+                <input
                 type="password"
                 id="password"
                 placeholder="Password"
-                autocomplete="current-password"
-            >
-        </div>
+                autocomplete="current-password">
 
-        <div class="login-options">
 
-            <label class="remember-me">
-                <input type="checkbox" id="rememberMe">
-                Remember Me
-            </label>
+                <button 
+                type="button"
+                id="showPassword"
+                class="icon-btn">
 
-            <button
+
+                    <span class="material-symbols-rounded">
+                        visibility
+                    </span>
+
+
+                </button>
+
+
+            </div>
+
+
+
+
+
+            <!-- OPTIONS -->
+            <div class="login-options">
+
+
+                <label class="remember-me">
+
+                    <input 
+                    type="checkbox" 
+                    id="rememberMe">
+
+                    <span>
+                        Remember me
+                    </span>
+
+                </label>
+
+
+
+                <button
                 id="forgotPassword"
                 class="forgot-btn"
                 type="button">
-                Forgot Password?
+
+                    Forgot password?
+
+                </button>
+
+
+            </div>
+
+
+
+
+
+            <!-- LOGIN BUTTON -->
+            <button 
+            id="loginBtn" 
+            class="login-btn">
+
+
+                <span class="material-symbols-rounded">
+                    login
+                </span>
+
+
+                Login
+
+
             </button>
 
+
+
+
+            <!-- ERROR -->
+            <p 
+            id="loginError" 
+            class="login-error">
+            </p>
+
+
+
+
+            <!-- LOADING -->
+            <div 
+            id="loadingSpinner" 
+            class="loading-spinner"
+            style="display:none;">
+
+
+                <span class="material-symbols-rounded">
+                    progress_activity
+                </span>
+
+
+                Authenticating...
+
+
+            </div>
+
+
+
+
+
+
+            <!-- FOOTER -->
+            <div class="login-footer">
+
+                <p>
+                    © 2026 Production Management System
+                </p>
+
+                <small>
+                    Secure Equipment Tracking Platform
+                </small>
+
+            </div>
+
+
+
         </div>
 
-        <button id="loginBtn" class="login-btn">
-            Login
-        </button>
-
-        <p id="loginError" class="login-error"></p>
-
-        <div id="loadingSpinner" class="loading-spinner" style="display:none;">
-            Logging in...
-        </div>
 
     </div>
 
+
 </div>
+
+
 
 <script type="module" src="login.js"></script>
 <script type="module" src="UI.js"></script>
 <script type="module" src="autho.js"></script>
+
 
 </body>
 </html>
