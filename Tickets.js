@@ -384,13 +384,11 @@ LIVE TICKETS
 
 onValue(ticketsRef,(snapshot)=>{
 
+    ticketData = snapshot.val() || {};
 
-    ticketData =
-    snapshot.val() || {};
-
+    console.log("Tickets from Firebase:", ticketData);
 
     renderTickets(ticketData);
-
 
 });
 
