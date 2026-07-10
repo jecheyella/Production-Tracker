@@ -28,7 +28,6 @@ html.dark body {
 .card,
 .table-wrapper,
 .ticketForm,
-.login-card,
 .modal-content {
     background: rgba(255,255,255,0.9);
     border-radius: 18px;
@@ -42,7 +41,6 @@ html.dark .header,
 html.dark .card,
 html.dark .table-wrapper,
 html.dark .ticketForm,
-html.dark .login-card,
 html.dark .modal-content {
     background: rgba(0, 0, 0, 0.9);
     border: 1px solid rgba(0, 0, 0, 0.05);
@@ -1848,37 +1846,3 @@ PROFILE DARK MODE
 
 /* PASSWORD EYE */
 
-.password-group{
-    display:flex;
-    align-items:center;
-}
-
-
-.password-group input{
-    flex:1;
-}
-
-
-
-.password-toggle{
-
-    border:none;
-    background:none;
-
-    cursor:pointer;
-
-    display:flex;
-    align-items:center;
-
-    color:#64748b;
-
-    padding:5px;
-
-}
-
-
-.password-toggle:hover{
-
-    color:#2563eb;
-
-}
