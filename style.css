@@ -312,7 +312,7 @@ input, textarea, select {
 html.dark input,
 html.dark textarea,
 html.dark select {
-    background: #000;
+    background: #333333;
     color: white;
     border: 1px solid rgba(255,255,255,0.08);
 }
