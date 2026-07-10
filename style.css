@@ -473,6 +473,13 @@ html.dark .theme-btn {
     background:
         radial-gradient(circle at top, #2b2d31 0%, #1a1c20 45%, #111317 100%);
 }
+.login-btn:disabled{
+
+    opacity:.75;
+
+    cursor:not-allowed;
+
+}
 
 /* CARD */
 
@@ -675,6 +682,20 @@ html.dark .theme-btn {
 #loginError {
     margin-top: 15px;
     color: #e74c3c;
+}
+
+.login-error{
+
+    min-height:22px;
+
+    margin-top:18px;
+
+    font-size:14px;
+
+    font-weight:500;
+
+    color:#ef4444;
+
 }
 
 /* DARK MODE */

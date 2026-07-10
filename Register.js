@@ -74,79 +74,110 @@ registerBtn.addEventListener("click", async () => {
     registerError.textContent = "";
 
     const name = fullName.value.trim();
-    const userEmail = email.value.trim();
+    const userEmail = email.value.trim().toLowerCase();
     const userPassword = password.value;
     const confirm = confirmPassword.value;
 
-    // Validate fields
+    // ==========================
+    // VALIDATION
+    // ==========================
+
     if (!name || !userEmail || !userPassword || !confirm) {
-
-        registerError.textContent = "Please fill in all fields.";
+        registerError.textContent = "Please complete all required fields.";
         return;
+    }
 
+    if (name.length < 3) {
+        registerError.textContent = "Please enter your full name.";
+        return;
     }
 
     if (userPassword !== confirm) {
-
         registerError.textContent = "Passwords do not match.";
         return;
-
     }
 
     if (userPassword.length < 6) {
-
-        registerError.textContent = "Password must be at least 6 characters.";
+        registerError.textContent = "Password must contain at least 6 characters.";
         return;
-
     }
+
+    // ==========================
+    // LOADING
+    // ==========================
+
+    registerBtn.disabled = true;
+    registerBtn.textContent = "Creating Account...";
 
     try {
 
-        // Create Firebase Auth account
-        const userCredential = await createUserWithEmailAndPassword(
-            auth,
-            userEmail,
-            userPassword
-        );
+        const userCredential =
+            await createUserWithEmailAndPassword(
+                auth,
+                userEmail,
+                userPassword
+            );
 
         const uid = userCredential.user.uid;
 
-        // Save user information to Realtime Database
         await set(ref(db, "Users/" + uid), {
 
+            uid,
+
             fullName: name,
+
             email: userEmail,
 
             role: "Employee",
+
+            status: "Active",
+
+            profileImage: "",
 
             createdAt: new Date().toISOString()
 
         });
 
-        alert("Account created successfully!");
+        registerError.style.color = "#22c55e";
+        registerError.textContent =
+            "✅ Account created successfully! Redirecting...";
 
-        window.location.href = "Production.html";
+        setTimeout(() => {
+
+            window.location.href = "Production.html";
+
+        }, 1800);
 
     } catch (error) {
+
+        registerError.style.color = "#ef4444";
 
         switch (error.code) {
 
             case "auth/email-already-in-use":
-                registerError.textContent = "This email is already registered.";
+                registerError.textContent =
+                    "This email is already registered.";
                 break;
 
             case "auth/invalid-email":
-                registerError.textContent = "Please enter a valid email.";
+                registerError.textContent =
+                    "Please enter a valid email address.";
                 break;
 
             case "auth/weak-password":
-                registerError.textContent = "Password is too weak.";
+                registerError.textContent =
+                    "Password is too weak.";
                 break;
 
             default:
-                registerError.textContent = error.message;
-
+                registerError.textContent =
+                    error.message;
         }
+
+    } finally {
+
+        registerBtn.disabled = false;
+        registerBtn.textContent = "Create Account";
 
     }
 
