@@ -460,28 +460,7 @@ html.dark .theme-btn {
     transform: translateY(0);
 }
 
-/* ================= LOGIN ================= */
-
-.login-page {
-    position: fixed;
-    inset: 0;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    background:
-        radial-gradient(circle at top, #2b2d31 0%, #1a1c20 45%, #111317 100%);
-}
-.login-btn:disabled{
-
-    opacity:.75;
-
-    cursor:not-allowed;
-
-}
-
-/* CARD */
+/* ================= LOGIN CARD ================= */
 
 .login-card{
 
@@ -492,55 +471,70 @@ html.dark .theme-btn {
 
     text-align:center;
 
-    background:#202225;
+    background:#000000;
 
     border-radius:24px;
 
-    border:1px solid #2d3138;
+    border:1px solid #1a1a1a;
 
     box-shadow:
-        0 25px 60px rgba(0,0,0,.45);
+        0 25px 60px rgba(0,0,0,.55);
 
     transition:.3s;
+
+    animation:loginPop .45s ease;
 }
 
-/* BIGGER LOGO */
+/* ================= LOGO ================= */
 
-.login-logo {
-    width: 350px;
-    max-width: 100%;
-    margin-bottom: 20px;
+.login-logo{
+
+    width:380px;
+    max-width:100%;
+
+    display:block;
+
+    margin:0 auto 25px;
 }
 
-/* TITLE */
+/* ================= TITLE ================= */
 
-.login-card h2 {
-    font-size: 30px;
-    font-weight: 700;
-    color: #000000;
-    margin-bottom: 10px;
+.login-card h2{
+
+    font-size:38px;
+    font-weight:700;
+
+    color:#ffffff;
+
+    margin-bottom:10px;
 }
 
-.login-subtitle {
-    font-size: 14px;
-    color: #777;
-    margin-bottom: 35px;
+.login-subtitle{
+
+    font-size:16px;
+
+    color:#9ca3af;
+
+    margin-bottom:35px;
 }
 
-/* INPUTS */
+/* ================= INPUTS ================= */
 
-.login-card input {
+.login-card input{
+
     width:100%;
 
-    padding:16px 18px;
+    height:58px;
 
-    border-radius:14px;
+    padding:0 20px;
 
-    border:1px solid #36393f;
+    border-radius:15px;
 
-    background:#18191d;
+    border:1px solid #252525;
 
-    color:white;
+    background:#111111;
+
+    color:#ffffff;
 
     font-size:15px;
 
@@ -550,44 +544,61 @@ html.dark .theme-btn {
 .login-card input::placeholder{
 
     color:#8b8d91;
-
 }
 
-.login-card input:focus {
+.login-card input:focus{
+
     outline:none;
 
     border-color:#3d8b63;
 
     box-shadow:
         0 0 0 4px rgba(61,139,99,.18);
-    
 }
 
-/* BUTTON */
+/* ================= PASSWORD ================= */
 
-#loginBtn{
+.password-group{
 
-    width:100%;
+    position:relative;
 
-    padding:15px;
+    display:flex;
 
-    background:#3d8b63;
+    align-items:center;
+}
+
+.password-group input{
+
+    padding-right:55px;
+}
+
+.password-toggle{
+
+    position:absolute;
+
+    right:15px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    background:none;
 
     border:none;
 
-    border-radius:14px;
-
-    color:white;
-
-    font-size:16px;
-
-    font-weight:600;
+    color:#8b8d91;
 
     cursor:pointer;
 
     transition:.25s;
-
 }
+
+.password-toggle:hover{
+
+    color:#ffffff;
+}
+
+/* ================= OPTIONS ================= */
 
 .login-options{
 
@@ -597,8 +608,7 @@ html.dark .theme-btn {
 
     align-items:center;
 
-    margin:18px 0 22px;
-
+    margin:18px 0 28px;
 }
 
 .remember-me{
@@ -610,17 +620,15 @@ html.dark .theme-btn {
     gap:8px;
 
     color:#b5b5b5;
-
 }
 
 .remember-me input{
 
-    width:16px;
+    width:17px;
 
-    height:16px;
+    height:17px;
 
     margin:0;
-
 }
 
 .forgot-btn{
@@ -634,105 +642,59 @@ html.dark .theme-btn {
     cursor:pointer;
 
     font-size:14px;
-
 }
 
 .forgot-btn:hover{
 
     text-decoration:underline;
-
 }
 
-.password-group{
+/* ================= LOGIN BUTTON ================= */
 
-    display:flex;
+#loginBtn{
 
-    align-items:center;
+    width:100%;
 
-}
-
-.password-group input{
-
-    flex:1;
-
-}
-
-.password-toggle{
-
-    background:none;
+    height:58px;
 
     border:none;
 
-    color:#8b8d91;
+    border-radius:15px;
+
+    background:linear-gradient(
+        135deg,
+        #3f9566,
+        #58b47c
+    );
+
+    color:white;
+
+    font-size:17px;
+
+    font-weight:700;
 
     cursor:pointer;
 
-    margin-left:10px;
-
+    transition:.25s;
 }
 
-.password-toggle:hover{
+#loginBtn:hover{
 
-    color:#71c192;
+    transform:translateY(-2px);
 
+    box-shadow:
+        0 15px 35px rgba(63,149,102,.35);
 }
 
-/* ERROR */
+/* ================= FOOTER ================= */
 
-#loginError {
-    margin-top: 15px;
-    color: #e74c3c;
-}
-
-.login-error{
-
-    min-height:22px;
-
-    margin-top:18px;
-
-    font-size:14px;
-
-    font-weight:500;
-
-    color:#ef4444;
-
-}
-
-/* DARK MODE */
-html.dark .login-page{
-
-    background:
-        radial-gradient(circle at top,#2b2d31 0%,#1a1c20 45%,#111317 100%);
-
-}
-
-html.dark .login-card {
-    background: #17191d;
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    box-shadow: none;
-}
-
-html.dark .login-card h2 {
-    color: white;
-}
-
-html.dark .login-subtitle {
-    color: #9ca3af;
-}
-
-html.dark .login-card input {
-    background: #111317;
-    border: 1px solid #000000;
-    color: white;
-}
 .login-footer{
 
     margin-top:22px;
 
-    color:#9ca3af;
+    color:#8b8d91;
 
     font-size:14px;
-
 }
 
 .login-footer a{
@@ -742,15 +704,83 @@ html.dark .login-card input {
     text-decoration:none;
 
     font-weight:600;
-
 }
 
 .login-footer a:hover{
 
     text-decoration:underline;
-
 }
 
+/* ================= ERROR ================= */
+
+.login-error{
+
+    min-height:22px;
+
+    margin-top:18px;
+
+    color:#ef4444;
+
+    font-size:14px;
+
+    font-weight:500;
+}
+
+/* ================= DARK MODE ================= */
+
+html.dark .login-card{
+
+    background:#000000;
+
+    border:1px solid #1a1a1a;
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.55);
+}
+
+html.dark .login-card input{
+
+    background:#111111;
+
+    border:1px solid #252525;
+
+    color:#ffffff;
+}
+
+html.dark .login-card h2{
+
+    color:#ffffff;
+}
+
+html.dark .login-subtitle{
+
+    color:#9ca3af;
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes loginPop{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(20px)
+            scale(.98);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+}
 /* ================= TICKET SYSTEM (NEW UPGRADE) ================= */
 
 .ticketSection {
