@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account | Production Equipment Tracker</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet">
+
+    <!-- Prevent Theme Flicker -->
+    <script>
+    (function () {
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "dark") {
+            document.documentElement.classList.add("dark");
+        }
+    })();
+    </script>
+
+</head>
+
+<body>
+
+<div class="login-page">
+
+    <div class="login-card">
+
+        <img
+            id="logo"
+            src="logo-light.png"
+            class="logo"
+            alt="Bethlehem Logo">
+
+        <h2>Create Account</h2>
+
+        <p class="login-subtitle">
+            Production Equipment Tracker & Management System
+        </p>
+
+        <div class="input-group">
+            <input
+                type="text"
+                id="fullName"
+                placeholder="Full Name">
+        </div>
+        
+        <div class="input-group">
+            <input
+                type="email"
+                id="email"
+                placeholder="Email Address">
+        </div>
+
+        <div class="input-group password-group">
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Password">
+
+            <button
+                type="button"
+                id="showPassword"
+                class="password-toggle">
+
+                <span class="material-symbols-rounded">
+                    visibility
+                </span>
+
+            </button>
+
+        </div>
+
+        <div class="input-group password-group">
+
+            <input
+                type="password"
+                id="confirmPassword"
+                placeholder="Confirm Password">
+
+            <button
+                type="button"
+                id="showConfirmPassword"
+                class="password-toggle">
+
+                <span class="material-symbols-rounded">
+                    visibility
+                </span>
+
+            </button>
+
+        </div>
+
+        <button id="registerBtn" class="login-btn">
+            Create Account
+        </button>
+
+        <p id="registerError" class="login-error"></p>
+
+        <div class="login-footer">
+
+            Already have an account?
+
+            <a href="Production.html">
+                Login
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script type="module" src="register.js"></script>
+
+</body>
+</html>
