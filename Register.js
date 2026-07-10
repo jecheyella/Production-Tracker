@@ -1,4 +1,4 @@
-import { auth, database } from "../firebase-config.js";
+import { auth, db } from "./firebase-config.js";
 
 import {
     createUserWithEmailAndPassword
@@ -112,7 +112,7 @@ registerBtn.addEventListener("click", async () => {
         const uid = userCredential.user.uid;
 
         // Save user information to Realtime Database
-        await set(ref(database, "Users/" + uid), {
+        await set(ref(db, "Users/" + uid), {
 
             fullName: name,
             email: userEmail,
