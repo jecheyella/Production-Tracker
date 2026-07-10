@@ -460,48 +460,62 @@ html.dark .theme-btn {
     transform: translateY(0);
 }
 
+/* ================= LOGIN PAGE ================= */
+
+.login-page{
+    position:fixed;
+    inset:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    radial-gradient(circle at top,#2f3136 0%,#18191c 45%,#0d0d0d 100%);
+}
+
 /* ================= LOGIN CARD ================= */
 
 .login-card{
 
-    width:520px;
-    max-width:92%;
+    width:540px;
+    max-width:94%;
 
-    padding:55px 50px;
-
-    text-align:center;
-
-    background:#000000;
+    padding:55px;
 
     border-radius:24px;
 
+    background:#000000;
+
     border:1px solid #1a1a1a;
 
-    box-shadow:
-        0 25px 60px rgba(0,0,0,.55);
+    text-align:center;
 
-    transition:.3s;
+    box-shadow:
+        0 30px 70px rgba(0,0,0,.55);
 
     animation:loginPop .45s ease;
 }
 
-/* ================= LOGO ================= */
+/* ================= LOGIN LOGO ================= */
 
-.login-logo{
+.login-card .logo{
 
     width:380px;
+
     max-width:100%;
 
     display:block;
 
-    margin:0 auto 25px;
+    margin:0 auto 28px;
 }
 
 /* ================= TITLE ================= */
 
 .login-card h2{
 
-    font-size:38px;
+    font-size:36px;
+
     font-weight:700;
 
     color:#ffffff;
@@ -511,14 +525,21 @@ html.dark .theme-btn {
 
 .login-subtitle{
 
-    font-size:16px;
-
     color:#9ca3af;
 
+    font-size:15px;
+
     margin-bottom:35px;
+
+    line-height:1.5;
 }
 
 /* ================= INPUTS ================= */
+
+.input-group{
+
+    margin-bottom:18px;
+}
 
 .login-card input{
 
@@ -526,15 +547,15 @@ html.dark .theme-btn {
 
     height:58px;
 
-    padding:0 20px;
+    padding:0 18px;
 
     border-radius:15px;
 
-    border:1px solid #252525;
+    border:1px solid #2d2d2d;
 
     background:#111111;
 
-    color:#ffffff;
+    color:white;
 
     font-size:15px;
 
@@ -543,7 +564,7 @@ html.dark .theme-btn {
 
 .login-card input::placeholder{
 
-    color:#8b8d91;
+    color:#7c7c7c;
 }
 
 .login-card input:focus{
@@ -553,7 +574,7 @@ html.dark .theme-btn {
     border-color:#3d8b63;
 
     box-shadow:
-        0 0 0 4px rgba(61,139,99,.18);
+        0 0 0 4px rgba(61,139,99,.15);
 }
 
 /* ================= PASSWORD ================= */
@@ -582,20 +603,18 @@ html.dark .theme-btn {
 
     transform:translateY(-50%);
 
-    background:none;
-
     border:none;
 
-    color:#8b8d91;
+    background:none;
+
+    color:#8a8a8a;
 
     cursor:pointer;
-
-    transition:.25s;
 }
 
 .password-toggle:hover{
 
-    color:#ffffff;
+    color:white;
 }
 
 /* ================= OPTIONS ================= */
@@ -617,36 +636,43 @@ html.dark .theme-btn {
 
     align-items:center;
 
-    gap:8px;
+    gap:10px;
 
-    color:#b5b5b5;
+    color:#c8c8c8;
+
+    font-size:14px;
 }
 
 .remember-me input{
 
-    width:17px;
+    width:18px;
 
-    height:17px;
+    height:18px;
+
+    accent-color:#3f9566;
 
     margin:0;
 }
 
 .forgot-btn{
 
-    background:none;
-
     border:none;
+
+    background:none;
 
     color:#71c192;
 
     cursor:pointer;
 
     font-size:14px;
+
+    transition:.2s;
 }
 
 .forgot-btn:hover{
 
-    text-decoration:underline;
+    color:#9be6bb;
+
 }
 
 /* ================= LOGIN BUTTON ================= */
@@ -659,12 +685,12 @@ html.dark .theme-btn {
 
     border:none;
 
-    border-radius:15px;
+    border-radius:16px;
 
     background:linear-gradient(
         135deg,
-        #3f9566,
-        #58b47c
+        #2f6b4f,
+        #4fa172
     );
 
     color:white;
@@ -672,6 +698,8 @@ html.dark .theme-btn {
     font-size:17px;
 
     font-weight:700;
+
+    letter-spacing:.3px;
 
     cursor:pointer;
 
@@ -683,18 +711,76 @@ html.dark .theme-btn {
     transform:translateY(-2px);
 
     box-shadow:
-        0 15px 35px rgba(63,149,102,.35);
+        0 18px 35px rgba(47,107,79,.35);
+
+}
+/* ================= ERROR ================= */
+
+.login-error{
+
+    margin-top:18px;
+
+    color:#ef4444;
+
+    min-height:22px;
+
+    font-size:14px;
 }
 
-/* ================= FOOTER ================= */
+/* ================= DARK MODE ================= */
+
+html.dark .login-page{
+
+    background:
+    radial-gradient(circle at top,#2f3136 0%,#18191c 45%,#0d0d0d 100%);
+}
+
+html.dark .login-card{
+
+    background:#000000;
+
+    border:1px solid #1a1a1a;
+}
+
+html.dark .login-card input{
+
+    background:#111111;
+
+    border:1px solid #2d2d2d;
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes loginPop{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px) scale(.97);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0) scale(1);
+
+    }
+}
 
 .login-footer{
 
     margin-top:22px;
 
-    color:#8b8d91;
+    text-align:center;
+
+    color:#9ca3af;
 
     font-size:14px;
+
+    line-height:1.6;
 }
 
 .login-footer a{
@@ -711,76 +797,6 @@ html.dark .theme-btn {
     text-decoration:underline;
 }
 
-/* ================= ERROR ================= */
-
-.login-error{
-
-    min-height:22px;
-
-    margin-top:18px;
-
-    color:#ef4444;
-
-    font-size:14px;
-
-    font-weight:500;
-}
-
-/* ================= DARK MODE ================= */
-
-html.dark .login-card{
-
-    background:#000000;
-
-    border:1px solid #1a1a1a;
-
-    box-shadow:
-        0 25px 60px rgba(0,0,0,.55);
-}
-
-html.dark .login-card input{
-
-    background:#111111;
-
-    border:1px solid #252525;
-
-    color:#ffffff;
-}
-
-html.dark .login-card h2{
-
-    color:#ffffff;
-}
-
-html.dark .login-subtitle{
-
-    color:#9ca3af;
-}
-
-/* ================= ANIMATION ================= */
-
-@keyframes loginPop{
-
-    from{
-
-        opacity:0;
-
-        transform:
-            translateY(20px)
-            scale(.98);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:
-            translateY(0)
-            scale(1);
-
-    }
-}
 /* ================= TICKET SYSTEM (NEW UPGRADE) ================= */
 
 .ticketSection {

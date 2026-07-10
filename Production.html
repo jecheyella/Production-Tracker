@@ -68,32 +68,90 @@
 
 </div>
 
-        <div class="login-options">
+        <!-- Email -->
+<div class="input-group">
+    <input
+        type="email"
+        id="email"
+        placeholder="Email Address"
+        autocomplete="email">
+</div>
 
-            <label class="remember-me">
-                <input type="checkbox" id="rememberMe">
-                Remember Me
-            </label>
+<!-- Password -->
+<div class="input-group password-group">
 
-            <p class="login-footer">
-                New here?
-    <a href="Register.html">Create an account</a>
+    <input
+        type="password"
+        id="password"
+        placeholder="Password"
+        autocomplete="current-password">
+
+    <button
+        type="button"
+        id="showPassword"
+        class="password-toggle">
+
+        <span class="material-symbols-rounded">
+            visibility
+        </span>
+
+    </button>
+
+</div>
+
+<!-- Remember + Forgot -->
+<div class="login-options">
+
+    <label class="remember-me">
+
+        <input type="checkbox" id="rememberMe">
+
+        <span>Remember Me</span>
+
+    </label>
+
+    <button
+        id="forgotPassword"
+        class="forgot-btn"
+        type="button">
+
+        Forgot Password?
+
+    </button>
+
+</div>
+
+<!-- Login Button -->
+
+<button id="loginBtn" class="login-btn">
+
+    Login
+
+</button>
+
+<p id="loginError" class="login-error"></p>
+
+<!-- Register -->
+
+<p class="login-footer">
+
+    New here?
+
+    <a href="Register.html">
+
+        Create an account
+
+    </a>
+
 </p>
 
-            <button
-                id="forgotPassword"
-                class="forgot-btn"
-                type="button">
-                Forgot Password?
-            </button>
+<div id="loadingSpinner"
+    class="loading-spinner"
+    style="display:none;">
 
-        </div>
+    Logging in...
 
-        <button id="loginBtn" class="login-btn">
-            Login
-        </button>
-
-        <p id="loginError" class="login-error"></p>
+</div>
 
         <div id="loadingSpinner" class="loading-spinner" style="display:none;">
             Logging in...
