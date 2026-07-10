@@ -1,4 +1,4 @@
-import { auth } from "../firebase-config.js";
+import { auth } from "./firebase-config.js";
 import {
     signInWithEmailAndPassword,
     onAuthStateChanged,
@@ -15,24 +15,78 @@ export function initAuth() {
     const loginPage = document.getElementById("loginPage");
     const appLayout = document.getElementById("appLayout");
 
-    loginBtn?.addEventListener("click", () => {
-        signInWithEmailAndPassword(auth, email.value, password.value)
-            .catch(err => alert(err.message));
-    });
+    /* =========================
+       LOGIN
+    ========================= */
 
-    logoutBtn?.addEventListener("click", () => {
-        signOut(auth);
-    });
+    if (loginBtn && email && password) {
+
+        loginBtn.addEventListener("click", () => {
+
+            signInWithEmailAndPassword(
+                auth,
+                email.value,
+                password.value
+            ).catch(err => alert(err.message));
+
+        });
+
+    }
+
+    /* =========================
+       LOGOUT
+    ========================= */
+
+    if (logoutBtn) {
+
+        logoutBtn.addEventListener("click", () => {
+
+            signOut(auth);
+
+        });
+
+    }
+
+    /* =========================
+       AUTH STATE
+    ========================= */
 
     onAuthStateChanged(auth, (user) => {
 
-        if (user) {
-            loginPage.style.display = "none";
-            appLayout.style.display = "flex";
-        } else {
-            loginPage.style.display = "flex";
-            appLayout.style.display = "none";
+        // Login page
+        if (loginPage && appLayout) {
+
+            if (user) {
+
+                loginPage.style.display = "none";
+                appLayout.style.display = "flex";
+
+            } else {
+
+                loginPage.style.display = "flex";
+                appLayout.style.display = "none";
+
+            }
+
+        }
+
+        // Other pages
+        else {
+
+            if (!user) {
+
+                window.location.href = "index.html";
+
+            }
+
         }
 
     });
+
 }
+
+/* =========================
+START AUTH
+========================= */
+
+initAuth();

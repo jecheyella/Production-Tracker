@@ -1,7 +1,11 @@
 import { db } from "./firebase-config.js";
 import { listenToEquipment, initUI } from "./UI.js";
 
+console.log("Tickets.js loaded");
+
 initUI();
+console.log("UI initialized");
+
 
 import {
     ref,
@@ -16,6 +20,7 @@ FIREBASE
 ========================= */
 
 const ticketsRef = ref(db, "maintenanceTickets");
+console.log("Firebase connected");
 
 
 /* =========================
@@ -453,19 +458,13 @@ MANAGE TICKET
 ========================= */
 
 
-ticketTable?.addEventListener("click",(e)=>{
+ticketTable?.addEventListener("click", (e) => {
 
+    const btn = e.target.closest(".viewTicketBtn");
 
-    if(
-        !e.target.classList.contains("viewTicketBtn")
-    )
-    return;
+    if (!btn) return;
 
-
-
-    const id =
-    e.target.dataset.id;
-
+    const id = btn.dataset.id;
 
 
     selectedTicketId=id;
