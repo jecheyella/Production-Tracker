@@ -1,4 +1,3 @@
-
 /* ================= GLOBAL ================= */
 
 * {
@@ -303,9 +302,7 @@ select.statusSelect {
     border-radius: 8px;
 }
 
-.ticketForm input,
-.ticketForm textarea,
-.ticketForm select {
+input, textarea, select {
     width: 100%;
     padding: 12px;
     border-radius: 10px;
@@ -313,9 +310,9 @@ select.statusSelect {
     outline: none;
 }
 
-html.dark .ticketForm input,
-html.dark .ticketForm textarea,
-html.dark .ticketForm select {
+html.dark input,
+html.dark textarea,
+html.dark select {
     background: #333333;
     color: white;
     border: 1px solid rgba(255,255,255,0.08);
@@ -323,18 +320,9 @@ html.dark .ticketForm select {
 
 /* ================= BUTTON ================= */
 
-button{
-    cursor:pointer;
-}
-
-.login-page button,
-.modal button,
-.ticket-add-btn,
-.add-btn,
-.theme-btn,
-.secondary-btn,
-.danger-btn{
-    transition:.3s;
+button {
+    cursor: pointer;
+    transition: 0.3s ease;
 }
 
 /* ================= TABLE HISTORY BUTTON ================= */
@@ -478,7 +466,6 @@ html.dark .theme-btn {
 .login-page{
     position:fixed;
     inset:0;
-    z-index: 9999;
 
     display:flex;
     justify-content:center;
@@ -1738,7 +1725,7 @@ LOGOUT BUTTON
 PROFILE DARK MODE
 =========================== */
 
-html.dark .profile-card{
+.dark .profile-card{
 
     background:#242424;
 
@@ -1753,7 +1740,7 @@ html.dark .profile-card{
 
 /* Profile name */
 
-html.dark .profile-content h2{
+.dark .profile-content h2{
 
     color:#ffffff;
 
@@ -1762,7 +1749,7 @@ html.dark .profile-content h2{
 
 /* Email */
 
-html.dark .profile-content p{
+.dark .profile-content p{
 
     color:#bdbdbd;
 
@@ -1782,7 +1769,7 @@ html.dark .profile-content p{
 
 /* Online dot */
 
-html.dark .profile-online{
+.dark .profile-online{
 
     border-color:#242424;
 
@@ -1792,7 +1779,7 @@ html.dark .profile-online{
 
 /* Divider */
 
-html.dark .profile-divider{
+.dark .profile-divider{
 
     background:#444;
 
@@ -1802,7 +1789,7 @@ html.dark .profile-divider{
 
 /* Information boxes */
 
-html.dark .detail-card{
+.dark .detail-card{
 
     background:#2d2d2d;
 
@@ -1812,7 +1799,7 @@ html.dark .detail-card{
 
 
 
-html.dark .detail-card:hover{
+.dark .detail-card:hover{
 
     background:#353535;
 
@@ -1822,7 +1809,7 @@ html.dark .detail-card:hover{
 
 /* Icons */
 
-html.dark .detail-card span{
+.dark .detail-card span{
 
     color:#6fb98f;
 
@@ -1832,7 +1819,7 @@ html.dark .detail-card span{
 
 /* Small labels */
 
-html.dark .detail-card small{
+.dark .detail-card small{
 
     color:#aaa;
 
@@ -1842,7 +1829,7 @@ html.dark .detail-card small{
 
 /* Role badge */
 
-html.dark .profile-badge{
+.dark .profile-badge{
 
     background:rgba(111,185,143,.15);
 
@@ -1854,7 +1841,7 @@ html.dark .profile-badge{
 
 /* Logout button stays red */
 
-html.dark .danger-btn{
+.dark .danger-btn{
 
     color:white;
 
