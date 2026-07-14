@@ -22,7 +22,7 @@
 
 </head>
 
-<body>
+<>
 
 <div class="layout">
 
@@ -43,7 +43,7 @@
         <span class="label">Dashboard</span>
     </a>
 
-    <a href="Inventory.html">
+    <a href="Inventory.html" class="active">
         <span class="material-symbols-rounded">inventory_2</span>
         <span class="label">Inventory</span>
     </a>
@@ -68,7 +68,6 @@
         <span class="label">Settings</span>
     </a>
 
-</nav>
 
         </nav>
 
@@ -95,6 +94,7 @@
 
     <div class="inventory-header">
         <h2>Equipment List</h2>
+        </div>
 
     <input type="text" id="searchInput" placeholder="Search equipment...">
 
@@ -112,6 +112,7 @@
 
             <tbody id="equipmentTable"></tbody>
         </table>
+    
     </div>
 
 </section>
@@ -194,12 +195,14 @@
 <!-- ================= TOAST ================= -->
 <div id="toast" class="toast">Saved ✓</div>
 
-
+</main>
+    </div>
 <!-- ================= SCRIPT ================= -->
 <script type="module" src="autho.js"></script>
 <script type="module" src="Inventory.js"></script>
 <script type="module" src="UI.js"></script>
 
+    
 
 </body>
 </html>

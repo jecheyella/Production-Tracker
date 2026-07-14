@@ -221,7 +221,8 @@ html.dark .sidebar {
 
 .main {
     flex: 1;
-    padding: 25px;
+    width:100%;
+    padding:30px;
     margin-left: 78px;
     transition: margin-left 0.35s ease;
 }
@@ -258,19 +259,14 @@ html.dark .card {
 
 /* ================= TABLE ================= */
 
-.table-wrapper {
-    margin-top:0;
-
+.table-wrapper{
+    width:100%;
     overflow-x:auto;
-
-    border-radius:16px;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    border-radius: 12px;
-    overflow: hidden;
+table{
+    width:100%;
+    border-collapse:collapse;
 }
 
 thead {
@@ -349,14 +345,15 @@ html.dark #searchInput{
 .inventory{
 
     margin-top:30px;
+    width:100%;
 
 }
 .inventory-header{
     display:flex;
-    flex-direction:column;
-    align-items:flex-start;
-    gap:12px;
-    margin-bottom:20px;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:15px;
 }
 
 .inventory-header h2{
