@@ -17,14 +17,15 @@ const fullName = document.getElementById("fullName");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
 const confirmPassword = document.getElementById("confirmPassword");
+const role = document.getElementById("role");
 
 const registerBtn = document.getElementById("registerBtn");
 const registerError = document.getElementById("registerError");
 
 
-// =======================================
-// PASSWORD TOGGLE
-// =======================================
+/* ======================================
+PASSWORD TOGGLE
+====================================== */
 
 function setupPasswordToggle(buttonId, inputId) {
 
@@ -65,9 +66,9 @@ setupPasswordToggle("showPassword", "password");
 setupPasswordToggle("showConfirmPassword", "confirmPassword");
 
 
-// =======================================
-// REGISTER ACCOUNT
-// =======================================
+/* ======================================
+REGISTER ACCOUNT
+====================================== */
 
 if (registerBtn) {
 
@@ -80,12 +81,13 @@ if (registerBtn) {
         const userEmail = email.value.trim().toLowerCase();
         const userPassword = password.value;
         const confirm = confirmPassword.value;
+        const userRole = role.value;
 
-        // ==========================
-        // VALIDATION
-        // ==========================
+        /* ==========================
+        VALIDATION
+        ========================== */
 
-        if (!name || !userEmail || !userPassword || !confirm) {
+        if (!name || !userEmail || !userPassword || !confirm || !userRole) {
 
             registerError.textContent =
                 "Please complete all required fields.";
@@ -121,9 +123,9 @@ if (registerBtn) {
 
         }
 
-        // ==========================
-        // LOADING
-        // ==========================
+        /* ==========================
+        LOADING
+        ========================== */
 
         registerBtn.disabled = true;
         registerBtn.textContent = "Creating Account...";
@@ -144,7 +146,7 @@ if (registerBtn) {
                 uid: uid,
                 fullName: name,
                 email: userEmail,
-                role: "Employee",
+                role: userRole,
                 status: "Active",
                 profileImage: "",
                 createdAt: new Date().toISOString()

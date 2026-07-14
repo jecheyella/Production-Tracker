@@ -605,10 +605,23 @@ html.dark .theme-btn {
 
 /* ================= INPUTS ================= */
 
-.input-group{
 
-    margin-bottom:18px;
+.input-group select{
+
+    width:100%;
+    padding:16px 18px;
+    border:none;
+    border-radius:12px;
+    background:#f3f6fb;
+    color:#222;
+    font-size:16px;
+    outline:none;
+    box-sizing:border-box;
+    appearance:none;
+    cursor:pointer;
+
 }
+
 
 .login-card input{
 
@@ -644,6 +657,13 @@ html.dark .theme-btn {
 
     box-shadow:
         0 0 0 4px rgba(61,139,99,.15);
+}
+
+.dark .input-group select{
+
+    background:#1f1f1f;
+    color:#fff;
+
 }
 
 /* ================= PASSWORD ================= */
