@@ -69,116 +69,140 @@ setupPasswordToggle("showConfirmPassword", "confirmPassword");
 // REGISTER ACCOUNT
 // =======================================
 
-registerBtn.addEventListener("click", async () => {
+if (registerBtn) {
 
-    registerError.textContent = "";
-
-    const name = fullName.value.trim();
-    const userEmail = email.value.trim().toLowerCase();
-    const userPassword = password.value;
-    const confirm = confirmPassword.value;
-
-    // ==========================
-    // VALIDATION
-    // ==========================
-
-    if (!name || !userEmail || !userPassword || !confirm) {
-        registerError.textContent = "Please complete all required fields.";
-        return;
-    }
-
-    if (name.length < 3) {
-        registerError.textContent = "Please enter your full name.";
-        return;
-    }
-
-    if (userPassword !== confirm) {
-        registerError.textContent = "Passwords do not match.";
-        return;
-    }
-
-    if (userPassword.length < 6) {
-        registerError.textContent = "Password must contain at least 6 characters.";
-        return;
-    }
-
-    // ==========================
-    // LOADING
-    // ==========================
-
-    registerBtn.disabled = true;
-    registerBtn.textContent = "Creating Account...";
-
-    try {
-
-        const userCredential =
-            await createUserWithEmailAndPassword(
-                auth,
-                userEmail,
-                userPassword
-            );
-
-        const uid = userCredential.user.uid;
-
-        await set(ref(db, "Users/" + uid), {
-
-            uid,
-
-            fullName: name,
-
-            email: userEmail,
-
-            role: "Employee",
-
-            status: "Active",
-
-            profileImage: "",
-
-            createdAt: new Date().toISOString()
-
-        });
-
-        registerError.style.color = "#22c55e";
-        registerError.textContent =
-            "✅ Account created successfully! Redirecting...";
-
-        setTimeout(() => {
-
-            window.location.href = "Production.html";
-
-        }, 1800);
-
-    } catch (error) {
+    registerBtn.addEventListener("click", async () => {
 
         registerError.style.color = "#ef4444";
+        registerError.textContent = "";
 
-        switch (error.code) {
+        const name = fullName.value.trim();
+        const userEmail = email.value.trim().toLowerCase();
+        const userPassword = password.value;
+        const confirm = confirmPassword.value;
 
-            case "auth/email-already-in-use":
-                registerError.textContent =
-                    "This email is already registered.";
-                break;
+        // ==========================
+        // VALIDATION
+        // ==========================
 
-            case "auth/invalid-email":
-                registerError.textContent =
-                    "Please enter a valid email address.";
-                break;
+        if (!name || !userEmail || !userPassword || !confirm) {
 
-            case "auth/weak-password":
-                registerError.textContent =
-                    "Password is too weak.";
-                break;
+            registerError.textContent =
+                "Please complete all required fields.";
 
-            default:
-                registerError.textContent =
-                    error.message;
+            return;
+
         }
 
-    } finally {
+        if (name.length < 3) {
 
-        registerBtn.disabled = false;
-        registerBtn.textContent = "Create Account";
+            registerError.textContent =
+                "Please enter your full name.";
 
-    }
+            return;
 
-});
+        }
+
+        if (userPassword !== confirm) {
+
+            registerError.textContent =
+                "Passwords do not match.";
+
+            return;
+
+        }
+
+        if (userPassword.length < 6) {
+
+            registerError.textContent =
+                "Password must contain at least 6 characters.";
+
+            return;
+
+        }
+
+        // ==========================
+        // LOADING
+        // ==========================
+
+        registerBtn.disabled = true;
+        registerBtn.textContent = "Creating Account...";
+
+        try {
+
+            const userCredential =
+                await createUserWithEmailAndPassword(
+                    auth,
+                    userEmail,
+                    userPassword
+                );
+
+            const uid = userCredential.user.uid;
+
+            await set(ref(db, "Users/" + uid), {
+
+                uid: uid,
+                fullName: name,
+                email: userEmail,
+                role: "Employee",
+                status: "Active",
+                profileImage: "",
+                createdAt: new Date().toISOString()
+
+            });
+
+            registerError.style.color = "#22c55e";
+
+            registerError.textContent =
+                "✅ Account created successfully! Redirecting...";
+
+            setTimeout(() => {
+
+                window.location.href = "Production.html";
+
+            }, 1800);
+
+        } catch (error) {
+
+            registerError.style.color = "#ef4444";
+
+            switch (error.code) {
+
+                case "auth/email-already-in-use":
+
+                    registerError.textContent =
+                        "This email is already registered.";
+
+                    break;
+
+                case "auth/invalid-email":
+
+                    registerError.textContent =
+                        "Please enter a valid email address.";
+
+                    break;
+
+                case "auth/weak-password":
+
+                    registerError.textContent =
+                        "Password is too weak.";
+
+                    break;
+
+                default:
+
+                    registerError.textContent =
+                        error.message;
+
+            }
+
+        } finally {
+
+            registerBtn.disabled = false;
+            registerBtn.textContent = "Create Account";
+
+        }
+
+    });
+
+}
