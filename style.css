@@ -48,25 +48,34 @@ html.dark .modal-content {
 
 /* ================= HEADER ================= */
 
-.header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+.header{
+
+    
+    display:flex;
+
+    align-items:center;
+
+    margin-bottom:25px;
+
+    padding:20px;
+
 }
 
 .header h1{
-    margin: up 15px;
+    margin-top: 15px;
     margin-bottom: 15px;
 }
 
 /* center block */
-.header-center {
-    grid-column: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+
+.header-center{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
 }
 
 html.dark .header {
@@ -229,11 +238,18 @@ html.dark .sidebar {
 
 /* ================= LOGO ================= */
 
-.logo {
-    width: 520px;
-    max-width: 90%;
-}
+/* Header Logo */
 
+.header .logo{
+    width:130px;
+    max-width:130px;
+    height:auto;
+    display:block;
+    object-fit:contain;
+    flex-shrink:0;
+
+
+}
 /* ================= DASHBOARD ================= */
 
 .dashboard {
@@ -313,6 +329,61 @@ html.dark select {
     background: #333333;
     color: white;
     border: 1px solid rgba(255,255,255,0.08);
+}
+
+
+/* =================   SEARCH ================= */
+#searchInput{
+
+    width:100%;
+
+    margin:20px 0;
+
+    padding:14px 18px;
+
+    font-size:15px;
+
+    border-radius:12px;
+
+    border:1px solid #d7d7d7;
+
+    background:#fff;
+
+}
+html.dark #searchInput{
+
+    background:#1d1d1d;
+
+    color:white;
+
+    border:1px solid #444;
+
+}
+
+/* ================= INVENTORY ================= */
+.inventory-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+.inventory-actions{
+
+    display:flex;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
 }
 
 /* ================= BUTTON ================= */
