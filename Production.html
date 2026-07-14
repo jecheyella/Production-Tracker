@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +16,7 @@
     <script>
     (function () {
         const savedTheme = localStorage.getItem("theme");
+
         if (savedTheme === "dark") {
             document.documentElement.classList.add("dark");
         }
@@ -23,145 +25,157 @@
 
 </head>
 
+
 <body>
+
 
 <div id="loginPage" class="login-page">
 
+
     <div class="login-card">
 
-        <img id="logo" src="logo-light.png" class="logo">
+
+        <img id="logo" src="logo-light.png" class="logo" alt="Logo">
 
 
         <h2>Welcome Home!</h2>
+
 
         <p class="login-subtitle">
             Production Equipment Tracker & Management System
         </p>
 
+
+
+        <!-- Email -->
+
         <div class="input-group">
+
             <input
                 type="email"
                 id="email"
                 placeholder="Email Address"
-                autocomplete="email"
-            >
+                autocomplete="email">
+
         </div>
+
+
+
+        <!-- Password -->
 
         <div class="input-group password-group">
 
-    <input
-        type="password"
-        id="password"
-        placeholder="Password"
-        autocomplete="current-password">
-
-    <button
-        type="button"
-        id="showPassword"
-        class="password-toggle">
-
-        <span class="material-symbols-rounded">
-            visibility
-        </span>
-
-    </button>
-
-</div>
-
-        <!-- Email -->
-<div class="input-group">
-    <input
-        type="email"
-        id="email"
-        placeholder="Email Address"
-        autocomplete="email">
-</div>
-
-<!-- Password -->
-<div class="input-group password-group">
-
-    <input
-        type="password"
-        id="password"
-        placeholder="Password"
-        autocomplete="current-password">
-
-    <button
-        type="button"
-        id="showPassword"
-        class="password-toggle">
-
-        <span class="material-symbols-rounded">
-            visibility
-        </span>
-
-    </button>
-
-</div>
-
-<!-- Remember + Forgot -->
-<div class="login-options">
-
-    <label class="remember-me">
-
-        <input type="checkbox" id="rememberMe">
-
-        <span>Remember Me</span>
-
-    </label>
-
-    <button
-        id="forgotPassword"
-        class="forgot-btn"
-        type="button">
-
-        Forgot Password?
-
-    </button>
-
-</div>
-
-<!-- Login Button -->
-
-<button id="loginBtn" class="login-btn">
-
-    Login
-
-</button>
-
-<p id="loginError" class="login-error"></p>
-<p class="login-footer">
-
-    New here?
-
-    <a href="Register.html">
-
-        Create an account
-
-    </a>
-
-</p>
+            <input
+                type="password"
+                id="password"
+                placeholder="Password"
+                autocomplete="current-password">
 
 
-<div id="loadingSpinner"
-    class="loading-spinner"
-    style="display:none;">
+            <button
+                type="button"
+                id="showPassword"
+                class="password-toggle">
 
-    Logging in...
+                <span class="material-symbols-rounded">
+                    visibility
+                </span>
 
-</div>
+            </button>
 
-        <div id="loadingSpinner" class="loading-spinner" style="display:none;">
-            Logging in...
+
         </div>
+
+
+
+        <!-- Remember + Forgot -->
+
+        <div class="login-options">
+
+
+            <label class="remember-me">
+
+                <input 
+                    type="checkbox" 
+                    id="rememberMe">
+
+                <span>
+                    Remember Me
+                </span>
+
+            </label>
+
+
+
+            <button
+                id="forgotPassword"
+                class="forgot-btn"
+                type="button">
+
+                Forgot Password?
+
+            </button>
+
+
+        </div>
+
+
+
+        <!-- Login Button -->
+
+        <button 
+            id="loginBtn" 
+            class="login-btn">
+
+            Login
+
+        </button>
+
+
+
+        <!-- Error Message -->
+
+        <p id="loginError" class="login-error"></p>
+
+
+
+        <!-- Register -->
+
+        <p class="login-footer">
+
+            New here?
+
+            <a href="Register.html">
+                Create an account
+            </a>
+
+        </p>
+
+
+
+        <!-- Loading -->
+
+        <div 
+            id="loadingSpinner"
+            class="loading-spinner"
+            style="display:none;">
+
+            Logging in...
+
+        </div>
+
+
 
     </div>
 
+
 </div>
+
+
 
 <script type="module" src="login.js"></script>
 
 
-
 </body>
+
 </html>

@@ -1,4 +1,4 @@
-import { auth } from "../firebase-config.js";
+import { auth } from "./firebase-config.js";
 
 import {
     signInWithEmailAndPassword,
@@ -7,7 +7,9 @@ import {
 
 import { initUI } from "./UI.js";
 
+
 initUI();
+
 
 
 const email = document.getElementById("email");
@@ -15,47 +17,45 @@ const password = document.getElementById("password");
 const loginBtn = document.getElementById("loginBtn");
 const loginError = document.getElementById("loginError");
 
+const showPasswordBtn = document.getElementById("showPassword");
+const logo = document.getElementById("logo");
+const rememberMe = document.getElementById("rememberMe");
+
+
+
 
 // ===============================
 // PASSWORD SHOW / HIDE
 // ===============================
 
-const showPasswordBtn = document.getElementById("showPassword");
+if(showPasswordBtn){
+
+    showPasswordBtn.addEventListener("click",()=>{
 
 
-if (showPasswordBtn) {
-
-    showPasswordBtn.addEventListener("click", () => {
-
-
-        if (password.type === "password") {
-
+        if(password.type === "password"){
 
             password.type = "text";
 
-
             showPasswordBtn.innerHTML = `
-                <span class="material-symbols-rounded">
-                    visibility_off
-                </span>
+            <span class="material-symbols-rounded">
+            visibility_off
+            </span>
             `;
-
-
-        } else {
-
-
-            password.type = "password";
-
-
-            showPasswordBtn.innerHTML = `
-                <span class="material-symbols-rounded">
-                    visibility
-                </span>
-            `;
-
 
         }
 
+        else{
+
+            password.type = "password";
+
+            showPasswordBtn.innerHTML = `
+            <span class="material-symbols-rounded">
+            visibility
+            </span>
+            `;
+
+        }
 
     });
 
@@ -64,44 +64,30 @@ if (showPasswordBtn) {
 
 
 
-
 // ===============================
-// DARK MODE LOGO SWITCH
+// DARK MODE LOGO
 // ===============================
-
-
-const logo = document.getElementById("logo");
-
 
 function updateLogo(){
 
     if(!logo) return;
 
 
-    const isDark =
+    const dark =
     document.documentElement.classList.contains("dark");
 
 
-    if(isDark){
-
-        logo.src = "logo-dark.png";
-
-    }
-    else{
-
-        logo.src = "logo-light.png";
-
-    }
+    logo.src = dark
+    ? "logo-dark.png"
+    : "logo-light.png";
 
 }
 
 
-// Run when page loads
 updateLogo();
 
 
 
-// Watch theme changes
 const observer = new MutationObserver(()=>{
 
     updateLogo();
@@ -121,18 +107,16 @@ observer.observe(
 
 
 
-
-
 // ===============================
-// FIREBASE AUTH CHECK
+// CHECK LOGIN SESSION
 // ===============================
 
 
-onAuthStateChanged(auth, (user) => {
+onAuthStateChanged(auth,(user)=>{
 
-    if (user) {
+    if(user){
 
-        window.location.href = "Dashboard.html";
+        window.location.href="Dashboard.html";
 
     }
 
@@ -144,22 +128,20 @@ onAuthStateChanged(auth, (user) => {
 
 
 // ===============================
-// LOGIN
+// LOGIN FUNCTION
 // ===============================
 
 
-loginBtn.addEventListener("click", async () => {
+async function login(){
 
 
-    loginError.textContent = "";
+    loginError.textContent="";
 
 
-    if (!email.value || !password.value) {
-
+    if(!email.value || !password.value){
 
         loginError.textContent =
         "Please enter your email and password.";
-
 
         return;
 
@@ -167,7 +149,7 @@ loginBtn.addEventListener("click", async () => {
 
 
 
-    try {
+    try{
 
 
         await signInWithEmailAndPassword(
@@ -177,12 +159,34 @@ loginBtn.addEventListener("click", async () => {
         );
 
 
+
+        if(rememberMe && rememberMe.checked){
+
+            localStorage.setItem(
+                "rememberEmail",
+                email.value
+            );
+
+        }
+        else{
+
+            localStorage.removeItem(
+                "rememberEmail"
+            );
+
+        }
+
+
+
         window.location.href =
         "Dashboard.html";
 
 
 
-    } catch(error){
+    }
+
+
+    catch(error){
 
 
         switch(error.code){
@@ -198,9 +202,10 @@ loginBtn.addEventListener("click", async () => {
 
 
             case "auth/invalid-credential":
-            case "auth/wrong-password":
-            case "auth/user-not-found":
 
+            case "auth/wrong-password":
+
+            case "auth/user-not-found":
 
                 loginError.textContent =
                 "Incorrect email or password.";
@@ -211,15 +216,67 @@ loginBtn.addEventListener("click", async () => {
 
             default:
 
-
                 loginError.textContent =
                 error.message;
 
-
         }
-
 
     }
 
 
+}
+
+
+
+
+
+// Button Login
+
+if(loginBtn){
+
+    loginBtn.addEventListener(
+        "click",
+        login
+    );
+
+}
+
+
+
+
+
+// Press Enter to Login
+
+document.addEventListener(
+"keydown",
+(e)=>{
+
+    if(e.key==="Enter"){
+
+        login();
+
+    }
+
 });
+
+
+
+
+
+// Load saved email
+
+const savedEmail =
+localStorage.getItem("rememberEmail");
+
+
+if(savedEmail && email){
+
+    email.value = savedEmail;
+
+    if(rememberMe){
+
+        rememberMe.checked=true;
+
+    }
+
+}
