@@ -233,7 +233,7 @@ html.dark .sidebar {
 
 /* ================= LOGO ================= */
 
-.header.logo {
+.logo {
     width: 520px;
     max-width: 90%;
 }
