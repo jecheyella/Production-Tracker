@@ -317,21 +317,15 @@ html.dark select {
 
 
 /* =================   SEARCH ================= */
+/* Search Bar */
 #searchInput{
-
     width:100%;
-
-    height:50px;
-
     padding:14px 18px;
-
-    margin-bottom:20px;
-
-    border-radius:12px;
-
-    border:1px solid #d9d9d9;
-
-    font-size:15px;
+    margin-bottom:18px;
+    border-radius:16px;
+    border:1px solid #ddd;
+    font-size:16px;
+    background:white;
 }
 
 html.dark #searchInput{
@@ -348,7 +342,6 @@ html.dark #searchInput{
 .inventory{
 
     margin-top:30px;
-    width:100%;
 
 }
 .inventory-header{
@@ -356,21 +349,18 @@ html.dark #searchInput{
     justify-content:space-between;
     align-items:center;
     flex-wrap:wrap;
-    gap:15px;
+    gap:16px;
     margin-bottom:20px;
 }
 
 .inventory-header h2{
     margin:0;
-    font-size: 38px;
-    font-weight: 700;
-
+    font-size:28px;
 }
 
 .inventory-actions{
     display:flex;
     gap:12px;
-    align-items:center;
 }
 
 .inventory-actions .add-btn{
