@@ -261,7 +261,10 @@ html.dark .card {
 
 .table-wrapper{
     width:100%;
-    overflow-x:auto;
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
 }
 
 table{
@@ -320,7 +323,7 @@ html.dark select {
 
     height:50px;
 
-    padding:0 18px;
+    padding:14px 18px;
 
     margin-bottom:20px;
 
@@ -354,17 +357,20 @@ html.dark #searchInput{
     align-items:center;
     flex-wrap:wrap;
     gap:15px;
+    margin-bottom:20px;
 }
 
 .inventory-header h2{
     margin:0;
-    font-size:28px;
+    font-size: 38px;
+    font-weight: 700;
+
 }
 
 .inventory-actions{
     display:flex;
     gap:12px;
-    justify-content:flex-start;
+    align-items:center;
 }
 
 .inventory-actions .add-btn{
