@@ -59,15 +59,6 @@ export function initUI() {
     const themeText = document.getElementById("themeText");
     const themeIcon = document.getElementById("themeIcon");
 
-    if (localStorage.getItem("theme") === "dark") {
-
-        document.documentElement.classList.add("dark");
-
-    } else {
-
-        document.documentElement.classList.remove("dark");
-
-    }
 
     updateLogo();
 

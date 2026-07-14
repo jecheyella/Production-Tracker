@@ -233,7 +233,7 @@ html.dark .sidebar {
 
 /* ================= LOGO ================= */
 
-.logo {
+.header.logo {
     width: 520px;
     max-width: 90%;
 }
@@ -303,7 +303,9 @@ select.statusSelect {
     border-radius: 8px;
 }
 
-input, textarea, select {
+.ticketForm input,
+.ticketForm textarea,
+.ticketForm select {
     width: 100%;
     padding: 12px;
     border-radius: 10px;
@@ -311,9 +313,9 @@ input, textarea, select {
     outline: none;
 }
 
-html.dark input,
-html.dark textarea,
-html.dark select {
+html.dark .ticketForm input,
+html.dark .ticketForm textarea,
+html.dark .ticketForm select {
     background: #333333;
     color: white;
     border: 1px solid rgba(255,255,255,0.08);
@@ -321,9 +323,18 @@ html.dark select {
 
 /* ================= BUTTON ================= */
 
-button {
-    cursor: pointer;
-    transition: 0.3s ease;
+button{
+    cursor:pointer;
+}
+
+.login-page button,
+.modal button,
+.ticket-add-btn,
+.add-btn,
+.theme-btn,
+.secondary-btn,
+.danger-btn{
+    transition:.3s;
 }
 
 /* ================= TABLE HISTORY BUTTON ================= */
@@ -467,6 +478,7 @@ html.dark .theme-btn {
 .login-page{
     position:fixed;
     inset:0;
+    z-index: 9999;
 
     display:flex;
     justify-content:center;
@@ -1726,7 +1738,7 @@ LOGOUT BUTTON
 PROFILE DARK MODE
 =========================== */
 
-.dark .profile-card{
+html.dark .profile-card{
 
     background:#242424;
 
@@ -1741,7 +1753,7 @@ PROFILE DARK MODE
 
 /* Profile name */
 
-.dark .profile-content h2{
+html.dark .profile-content h2{
 
     color:#ffffff;
 
@@ -1750,7 +1762,7 @@ PROFILE DARK MODE
 
 /* Email */
 
-.dark .profile-content p{
+html.dark .profile-content p{
 
     color:#bdbdbd;
 
@@ -1770,7 +1782,7 @@ PROFILE DARK MODE
 
 /* Online dot */
 
-.dark .profile-online{
+html.dark .profile-online{
 
     border-color:#242424;
 
@@ -1780,7 +1792,7 @@ PROFILE DARK MODE
 
 /* Divider */
 
-.dark .profile-divider{
+html.dark .profile-divider{
 
     background:#444;
 
@@ -1790,7 +1802,7 @@ PROFILE DARK MODE
 
 /* Information boxes */
 
-.dark .detail-card{
+html.dark .detail-card{
 
     background:#2d2d2d;
 
@@ -1800,7 +1812,7 @@ PROFILE DARK MODE
 
 
 
-.dark .detail-card:hover{
+html.dark .detail-card:hover{
 
     background:#353535;
 
@@ -1810,7 +1822,7 @@ PROFILE DARK MODE
 
 /* Icons */
 
-.dark .detail-card span{
+html.dark .detail-card span{
 
     color:#6fb98f;
 
@@ -1820,7 +1832,7 @@ PROFILE DARK MODE
 
 /* Small labels */
 
-.dark .detail-card small{
+html.dark .detail-card small{
 
     color:#aaa;
 
@@ -1830,7 +1842,7 @@ PROFILE DARK MODE
 
 /* Role badge */
 
-.dark .profile-badge{
+html.dark .profile-badge{
 
     background:rgba(111,185,143,.15);
 
@@ -1842,7 +1854,7 @@ PROFILE DARK MODE
 
 /* Logout button stays red */
 
-.dark .danger-btn{
+html.dark .danger-btn{
 
     color:white;
 
