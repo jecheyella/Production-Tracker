@@ -84,7 +84,11 @@ html.dark h2,
 html.dark h3 {
     color: #ffffff;
 }
-
+html.dark .card,
+html.dark .header,
+html.dark .table-wrapper{
+    color:white;
+}
 /* ================= LAYOUT ================= */
 
 .layout {
