@@ -1,3 +1,4 @@
+
 /* ================= GLOBAL ================= */
 
 * {
@@ -55,7 +56,7 @@ html.dark .modal-content {
 }
 
 .header h1{
-    margin-top: 15px;
+    margin: up 15px;
     margin-bottom: 15px;
 }
 
@@ -83,11 +84,7 @@ html.dark h2,
 html.dark h3 {
     color: #ffffff;
 }
-html.dark .card,
-html.dark .header,
-html.dark .table-wrapper{
-    color:white;
-}
+
 /* ================= LAYOUT ================= */
 
 .layout {
@@ -537,7 +534,7 @@ html.dark .theme-btn {
 
 /* ================= INPUTS ================= */
 
-.login-page .input-group{
+.input-group{
 
     margin-bottom:18px;
 }
@@ -580,7 +577,7 @@ html.dark .theme-btn {
 
 /* ================= PASSWORD ================= */
 
-.login-page .password-group{
+.password-group{
 
     position:relative;
 
@@ -589,12 +586,12 @@ html.dark .theme-btn {
     align-items:center;
 }
 
-.login-page .password-group input{
+.password-group input{
 
     padding-right:55px;
 }
 
-.login-page .password-toggle{
+.password-toggle{
 
     position:absolute;
 
@@ -613,14 +610,14 @@ html.dark .theme-btn {
     cursor:pointer;
 }
 
-.login-page .password-toggle:hover{
+.password-toggle:hover{
 
     color:white;
 }
 
 /* ================= OPTIONS ================= */
 
-.login-page .login-options{
+.login-options{
 
     display:flex;
 
@@ -631,7 +628,7 @@ html.dark .theme-btn {
     margin:18px 0 28px;
 }
 
-    .login-page .remember-me{
+.remember-me{
 
     display:flex;
 
@@ -644,7 +641,7 @@ html.dark .theme-btn {
     font-size:14px;
 }
 
-.login-page .remember-me input{
+.remember-me input{
 
     width:18px;
 
@@ -655,7 +652,7 @@ html.dark .theme-btn {
     margin:0;
 }
 
-.login-page .forgot-btn{
+.forgot-btn{
 
     border:none;
 
@@ -717,7 +714,7 @@ html.dark .theme-btn {
 }
 /* ================= ERROR ================= */
 
-.login-page .login-error{
+.login-error{
 
     margin-top:18px;
 
@@ -736,14 +733,14 @@ html.dark .login-page{
     radial-gradient(circle at top,#2f3136 0%,#18191c 45%,#0d0d0d 100%);
 }
 
-html.dark .login-page .login-card{
+html.dark .login-card{
 
     background:#000000;
 
     border:1px solid #1a1a1a;
 }
 
-html.dark .login-page .login-card input{
+html.dark .login-card input{
 
     background:#111111;
 
@@ -771,7 +768,7 @@ html.dark .login-page .login-card input{
     }
 }
 
-.login-page .login-footer{
+.login-footer{
 
     margin-top:22px;
 
@@ -784,7 +781,7 @@ html.dark .login-page .login-card input{
     line-height:1.6;
 }
 
-.login-page .login-footer a{
+.login-footer a{
 
     color:#71c192;
 
@@ -793,7 +790,7 @@ html.dark .login-page .login-card input{
     font-weight:600;
 }
 
-.login-page .login-footer a:hover{
+.login-footer a:hover{
 
     text-decoration:underline;
 }
