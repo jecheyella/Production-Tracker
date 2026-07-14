@@ -56,7 +56,7 @@ html.dark .modal-content {
 }
 
 .header h1{
-    margin: up 15px;
+    margin-top: 15px;
     margin-bottom: 15px;
 }
 
@@ -538,7 +538,7 @@ html.dark .theme-btn {
 
 /* ================= INPUTS ================= */
 
-.input-group{
+.login-page .input-group{
 
     margin-bottom:18px;
 }
@@ -581,7 +581,7 @@ html.dark .theme-btn {
 
 /* ================= PASSWORD ================= */
 
-.password-group{
+.login-page .password-group{
 
     position:relative;
 
@@ -590,12 +590,12 @@ html.dark .theme-btn {
     align-items:center;
 }
 
-.password-group input{
+.login-page .password-group input{
 
     padding-right:55px;
 }
 
-.password-toggle{
+.login-page .password-toggle{
 
     position:absolute;
 
@@ -614,14 +614,14 @@ html.dark .theme-btn {
     cursor:pointer;
 }
 
-.password-toggle:hover{
+.login-page .password-toggle:hover{
 
     color:white;
 }
 
 /* ================= OPTIONS ================= */
 
-.login-options{
+.login-page .login-options{
 
     display:flex;
 
@@ -632,7 +632,7 @@ html.dark .theme-btn {
     margin:18px 0 28px;
 }
 
-.remember-me{
+    .login-page .remember-me{
 
     display:flex;
 
@@ -645,7 +645,7 @@ html.dark .theme-btn {
     font-size:14px;
 }
 
-.remember-me input{
+.login-page .remember-me input{
 
     width:18px;
 
@@ -656,7 +656,7 @@ html.dark .theme-btn {
     margin:0;
 }
 
-.forgot-btn{
+.login-page .forgot-btn{
 
     border:none;
 
@@ -718,7 +718,7 @@ html.dark .theme-btn {
 }
 /* ================= ERROR ================= */
 
-.login-error{
+.login-page .login-error{
 
     margin-top:18px;
 
@@ -737,14 +737,14 @@ html.dark .login-page{
     radial-gradient(circle at top,#2f3136 0%,#18191c 45%,#0d0d0d 100%);
 }
 
-html.dark .login-card{
+html.dark .login-page .login-card{
 
     background:#000000;
 
     border:1px solid #1a1a1a;
 }
 
-html.dark .login-card input{
+html.dark .login-page .login-card input{
 
     background:#111111;
 
@@ -772,7 +772,7 @@ html.dark .login-card input{
     }
 }
 
-.login-footer{
+.login-page .login-footer{
 
     margin-top:22px;
 
@@ -785,7 +785,7 @@ html.dark .login-card input{
     line-height:1.6;
 }
 
-.login-footer a{
+.login-page .login-footer a{
 
     color:#71c192;
 
@@ -794,7 +794,7 @@ html.dark .login-card input{
     font-weight:600;
 }
 
-.login-footer a:hover{
+.login-page .login-footer a:hover{
 
     text-decoration:underline;
 }
