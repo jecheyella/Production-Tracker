@@ -1,92 +1,77 @@
 import { auth } from "./firebase-config.js";
+
 import {
-    signInWithEmailAndPassword,
     onAuthStateChanged,
     signOut
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 export function initAuth() {
 
-    const email = document.getElementById("email");
-    const password = document.getElementById("password");
-    const loginBtn = document.getElementById("loginBtn");
     const logoutBtn = document.getElementById("logoutBtn");
 
-    const loginPage = document.getElementById("loginPage");
-    const appLayout = document.getElementById("appLayout");
-
-    /* =========================
-       LOGIN
-    ========================= */
-
-    if (loginBtn && email && password) {
-
-        loginBtn.addEventListener("click", () => {
-
-            signInWithEmailAndPassword(
-                auth,
-                email.value,
-                password.value
-            ).catch(err => alert(err.message));
-
-        });
-
-    }
-
-    /* =========================
-       LOGOUT
-    ========================= */
+    // =========================
+    // LOGOUT
+    // =========================
 
     if (logoutBtn) {
 
-        logoutBtn.addEventListener("click", () => {
+        logoutBtn.addEventListener("click", async () => {
 
-            signOut(auth);
+            try {
+
+                await signOut(auth);
+
+                window.location.href = "Production.html";
+
+            } catch (error) {
+
+                console.error(error);
+
+            }
 
         });
 
     }
 
-    /* =========================
-       AUTH STATE
-    ========================= */
+    // =========================
+    // AUTH GUARD
+    // =========================
 
     onAuthStateChanged(auth, (user) => {
 
-        // Login page
-        if (loginPage && appLayout) {
+        const currentPage =
+            window.location.pathname.split("/").pop();
 
-            if (user) {
+        // Pages that DON'T require login
+        const publicPages = [
+            "Production.html",
+            "Register.html",
+            "index.html"
+        ];
 
-                loginPage.style.display = "none";
-                appLayout.style.display = "flex";
+        // If user is not logged in and tries to access a protected page
+        if (!user && !publicPages.includes(currentPage)) {
 
-            } else {
-
-                loginPage.style.display = "flex";
-                appLayout.style.display = "none";
-
-            }
+            window.location.href = "Production.html";
+            return;
 
         }
 
-        // Other pages
-        else {
+        // If already logged in and visits login/register
+        if (
+            user &&
+            (
+                currentPage === "Production.html" ||
+                currentPage === "Register.html"
+            )
+        ) {
 
-            if (!user) {
-
-                window.location.href = "index.html";
-
-            }
+            window.location.href = "Dashboard.html";
 
         }
 
     });
 
 }
-
-/* =========================
-START AUTH
-========================= */
 
 initAuth();
