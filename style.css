@@ -267,10 +267,6 @@ html.dark .card {
     box-shadow:0 8px 25px rgba(0,0,0,.08);
 }
 
-.table-wrapper #searchTicket{
-    margin-bottom:24px;
-    display:block;
-}
 
 table{
     width:100%;
