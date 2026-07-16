@@ -267,7 +267,7 @@ html.dark .card {
     box-shadow:0 8px 25px rgba(0,0,0,.08);
 }
 
-.table-wrapper #searchInput{
+.table-wrapper #searchTicket{
     margin-bottom:24px;
     display:block;
 }
@@ -323,7 +323,7 @@ html.dark select {
 
 /* =================   SEARCH ================= */
 /* Search Bar */
-#searchInput{
+#searchTicket{
     width:100%;
     padding:14px 18px;
     margin-bottom:30px;
@@ -333,7 +333,7 @@ html.dark select {
     background:white;
 }
 
-html.dark #searchInput{
+html.dark #searchTicket{
 
     background:#1a1a1a;
 
