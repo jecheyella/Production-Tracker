@@ -264,6 +264,7 @@ html.dark .card {
     background:#fff;
     border-radius:18px;
     overflow:hidden;
+    margin-top:24px;
     box-shadow:0 8px 25px rgba(0,0,0,.08);
 }
 
