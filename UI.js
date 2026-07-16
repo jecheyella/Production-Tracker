@@ -55,10 +55,34 @@ export function initUI() {
 
     console.log("UI loaded");
 
+    const page = window.location.pathname.split("/").pop();
+
+    const isAuthPage =
+        page === "Production.html" ||
+        page === "Register.html";
+
+    // Login & Register are always light mode
+    if (isAuthPage) {
+
+        document.documentElement.classList.remove("dark");
+        updateLogo();
+
+        return;
+
+    }
+
+    // Other pages load the saved theme
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "dark") {
+        document.documentElement.classList.add("dark");
+    } else {
+        document.documentElement.classList.remove("dark");
+    }
+
     const darkToggle = document.getElementById("darkToggle");
     const themeText = document.getElementById("themeText");
     const themeIcon = document.getElementById("themeIcon");
-
 
     updateLogo();
 
