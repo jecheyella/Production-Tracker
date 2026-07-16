@@ -320,7 +320,7 @@ html.dark select {
 
 /* =================   SEARCH ================= */
 /* Search Bar */
-#searchTicket{
+#searchInput{
     width:100%;
     padding:14px 18px;
     margin-bottom:30px;
@@ -330,7 +330,7 @@ html.dark select {
     background:white;
 }
 
-html.dark #searchTicket{
+html.dark #searchInput{
 
     background:#1a1a1a;
 
