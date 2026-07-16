@@ -647,14 +647,6 @@ html.dark .theme-btn {
         0 0 0 4px rgba(47,107,79,.12);
 }
 
-.dark .input-group select{
-
-    background:#ffffff;
-    color:#222;
-    border:1px solid #d8d8d8;
-
-}
-
 /* ================= PASSWORD ================= */
 
 .password-group{
@@ -821,28 +813,6 @@ html.dark .theme-btn {
     min-height:22px;
 
     font-size:14px;
-}
-
-/* ================= DARK MODE ================= */
-
-html.dark .login-page{
-
-    background:
-    radial-gradient(circle at top,#2f3136 0%,#18191c 45%,#0d0d0d 100%);
-}
-
-html.dark .login-card{
-
-    background:#000000;
-
-    border:1px solid #1a1a1a;
-}
-
-html.dark .login-card input{
-
-    background:#111111;
-
-    border:1px solid #2d2d2d;
 }
 
 /* ================= ANIMATION ================= */
