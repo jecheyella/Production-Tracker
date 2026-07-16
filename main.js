@@ -1,4 +1,5 @@
 import { initUI } from "./UI.js";
+import { initInactivityLogout } from "./session.js";
 
 import "./auth.js";
 import "./dashboard.js";
@@ -11,5 +12,6 @@ import "./profile.js";
 window.addEventListener("DOMContentLoaded", () => {
 
     initUI();
+    initInactivityLogout();
 
 });
