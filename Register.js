@@ -81,7 +81,7 @@ if (registerBtn) {
         const userEmail = email.value.trim().toLowerCase();
         const userPassword = password.value;
         const confirm = confirmPassword.value;
-        const userRole = role.value;
+        const userRole = role.value.trim();
 
         /* ==========================
         VALIDATION
@@ -123,6 +123,17 @@ if (registerBtn) {
 
         }
 
+        const allowedRoles = ["Admin", "Volunteer"];
+
+        if (!allowedRoles.includes(userRole)) {
+
+            registerError.textContent =
+                "Please select a valid role.";
+
+            return;
+
+        }
+
         /* ==========================
         LOADING
         ========================== */
@@ -144,9 +155,9 @@ if (registerBtn) {
             await set(ref(db, "Users/" + uid), {
 
                 uid: uid,
-                fullName: name,
+                fullName: name.replace(/\s+/g, " ").trim(),
                 email: userEmail,
-                role: userRole,
+                role: userRole === "Admin" ? "Admin" : "Volunteer",
                 status: "Active",
                 profileImage: "",
                 createdAt: new Date().toISOString()

@@ -8,10 +8,42 @@ import {
     push
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
+import { hasPermission } from "./Role.js";
+
 import { listenToEquipment, initUI } from "./UI.js";
 
 initUI();
 
+/* =========================
+CURRENT DATA
+========================= */
+
+let equipmentData = {};
+let selectedEquipmentId = null;
+
+let canManageEquipment = false;
+
+/* =========================
+ROLE PERMISSIONS
+========================= */
+async function applyPermissions() {
+
+    const canAdd = await hasPermission("addEquipment");
+    const canEdit = await hasPermission("editEquipment");
+    const canDelete = await hasPermission("deleteEquipment");
+
+    canManageEquipment = canEdit || canDelete;
+
+    if (!canAdd) {
+        document.getElementById("openAddModal")?.remove();
+    }
+
+    if (!canManageEquipment) {
+        document.getElementById("manageHeader")?.remove();
+    }
+
+}
+applyPermissions();
 /* =========================
 ELEMENTS
 ========================= */
@@ -40,12 +72,6 @@ const equipmentList = document.getElementById("equipmentList");
 const ticketsRef = ref(db, "maintenanceTickets");
 const equipmentRef = ref(db, "equipment");
 
-/* =========================
-CURRENT DATA
-========================= */
-
-let equipmentData = {};
-let selectedEquipmentId = null;
 
 /* =========================
 RENDER TABLE
@@ -62,11 +88,15 @@ function renderTable(data) {
         const row = document.createElement("tr");
 
         row.innerHTML = `
-            <td>${item.brand || "-"}</td>
-            <td>${item.model || "-"}</td>
-            <td>${item.category || "-"}</td>
-            <td>${item.quantity || 0}</td>
-            <td>${item.status || "-"}</td>
+    <td>${item.brand || "-"}</td>
+    <td>${item.model || "-"}</td>
+    <td>${item.category || "-"}</td>
+    <td>${item.quantity || 0}</td>
+    <td>${item.status || "-"}</td>
+
+    ${
+        canManageEquipment
+            ? `
             <td>
                 <button
                     class="manageBtn"
@@ -74,7 +104,10 @@ function renderTable(data) {
                     Manage
                 </button>
             </td>
-        `;
+            `
+            : ""
+    }
+`;
 
         tableBody.appendChild(row);
 
@@ -416,7 +449,13 @@ window.addEventListener("click", (e) => {
 MANAGE EQUIPMENT
 ========================= */
 
+/* =========================
+MANAGE EQUIPMENT
+========================= */
+
 tableBody?.addEventListener("click", (e) => {
+
+    if (!canManageEquipment) return;
 
     if (!e.target.classList.contains("manageBtn")) return;
 
@@ -475,12 +514,16 @@ function updateEquipmentStatus(status) {
 document.getElementById("returnBtn")
 ?.addEventListener("click", () => {
 
+    if (!canManageEquipment) return;
+
     updateEquipmentStatus("Available");
 
 });
 
 document.getElementById("useBtn")
 ?.addEventListener("click", () => {
+
+    if (!canManageEquipment) return;
 
     updateEquipmentStatus("In Use");
 
@@ -497,7 +540,7 @@ const editBtn = document.getElementById("editEquipmentBtn");
 
 editBtn?.addEventListener("click", () => {
 
-    if (!selectedEquipmentId) return;
+    if (!canManageEquipment) return;
 
     const brand = document.getElementById("modalBrandInput");
     const model = document.getElementById("modalModelInput");
@@ -552,9 +595,9 @@ DELETE EQUIPMENT
 ========================= */
 
 document.getElementById("deleteEquipmentBtn")
-?.addEventListener("click", () => {
+?.addEventListener("click", async () => {
 
-    if (!selectedEquipmentId) return;
+    if (!(await hasPermission("deleteEquipment"))) return;
 
     if (!confirm("Delete this equipment?")) return;
 

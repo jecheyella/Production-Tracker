@@ -14,6 +14,8 @@ import {
     update
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
+import {hasPermission} from "./Role.js";
+
 
 /* =========================
 FIREBASE
@@ -55,6 +57,40 @@ CURRENT DATA
 
 let ticketData = {};
 let selectedTicketId = null;
+
+let canManageTickets = false;
+
+/* =========================
+ROLE PERMISSIONS
+========================= */
+
+async function applyPermissions() {
+
+    canManageTickets =
+        await hasPermission("completeTicket");
+
+    if (!canManageTickets) {
+
+        document.getElementById("startBtn")?.remove();
+
+        document.getElementById("completeBtn")?.remove();
+
+        document.getElementById("brokenBtn")?.remove();
+
+        // Hide the last column (Manage)
+        const headerRow = ticketTable?.closest("table")
+            ?.querySelector("thead tr");
+
+        if (headerRow) {
+            headerRow.lastElementChild.style.display = "none";
+        }
+
+    }
+
+}
+
+applyPermissions();
+
 
 
 /* =========================
@@ -334,35 +370,34 @@ function renderTickets(data){
 
 
 
-        row.innerHTML=`
+    row.innerHTML = `
 
-        <td>${id.substring(0,6)}</td>
+<td>${id.substring(0,6)}</td>
 
-        <td>${ticket.equipment}</td>
+<td>${ticket.equipment}</td>
 
-        <td>${ticket.reporter}</td>
+<td>${ticket.reporter}</td>
 
-        <td>${ticket.priority}</td>
+<td>${ticket.priority}</td>
 
-        <td>${ticket.status}</td>
+<td>${ticket.status}</td>
 
-        <td>${ticket.createdAt}</td>
+<td>${ticket.createdAt}</td>
 
-
+${
+    canManageTickets
+        ? `
         <td>
-
-        <button
-        class="viewTicketBtn"
-        data-id="${id}">
-
-        Manage
-
-        </button>
-
-
+            <button
+                class="viewTicketBtn"
+                data-id="${id}">
+                Action
+            </button>
         </td>
-
-        `;
+        `
+        : ""
+}
+`;
 
 
 
@@ -458,6 +493,8 @@ MANAGE TICKET
 
 ticketTable?.addEventListener("click", (e) => {
 
+    if (!canManageTickets) return;
+
     const btn = e.target.closest(".viewTicketBtn");
 
     if (!btn) return;
@@ -518,7 +555,10 @@ UPDATE TICKET STATUS
 ========================= */
 
 
-function updateTicketStatus(status){
+async function updateTicketStatus(status){
+
+    if (!canManageTickets)
+    return;
 
 
     if(!selectedTicketId)
@@ -591,36 +631,34 @@ BUTTON ACTIONS
 
 
 document.getElementById("startBtn")
-?.addEventListener("click",()=>{
+?.addEventListener("click", async () => {
 
-    updateTicketStatus(
-        "In Progress"
-    );
+    if (!(await hasPermission("completeTicket"))) return;
+
+    updateTicketStatus("In Progress");
 
 });
 
 
-
 document.getElementById("completeBtn")
-?.addEventListener("click",()=>{
+?.addEventListener("click", async () => {
 
-    updateTicketStatus(
-        "Completed"
-    );
+    if (!(await hasPermission("completeTicket"))) return;
+
+    updateTicketStatus("Completed");
 
 });
 
 
 
 document.getElementById("brokenBtn")
-?.addEventListener("click",()=>{
+?.addEventListener("click", async () => {
 
-    updateTicketStatus(
-        "Broken"
-    );
+    if (!(await hasPermission("completeTicket"))) return;
+
+    updateTicketStatus("Broken");
 
 });
-
 
 
 

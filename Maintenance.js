@@ -6,9 +6,34 @@ import {
     update
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
+import { hasPermission } from "./Role.js";
+
 import { initUI } from "./UI.js";
 
 initUI();
+
+/* =========================
+ROLE PERMISSIONS
+========================= */
+
+let canAccessMaintenance = false;
+
+async function applyPermissions() {
+
+    canAccessMaintenance =
+        await hasPermission("maintenance");
+
+    if (!canAccessMaintenance) {
+
+        alert("You do not have permission to access this page.");
+
+        window.location.href = "Dashboard.html";
+
+    }
+
+}
+
+applyPermissions();
 
 
 /* =========================
@@ -87,7 +112,9 @@ onValue(ticketsRef, (snapshot) => {
 COMPLETE REPAIR
 ========================= */
 
-document.addEventListener("click", (e) => {
+document.addEventListener("click", async (e) => {
+
+    if (!canAccessMaintenance) return;
 
 
     if(!e.target.classList.contains("completeRepair"))

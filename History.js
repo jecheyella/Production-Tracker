@@ -6,6 +6,8 @@ import {
     remove
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
+import { hasPermission } from "./Role.js";
+
 import { listenToEquipment, initUI } from "./UI.js";
 
 initUI();
@@ -28,6 +30,20 @@ CURRENT DATA
 ========================= */
 
 let historyData = {};
+let canDeleteHistory = false;
+
+/* =========================
+ROLE PERMISSIONS
+========================= */
+
+async function applyPermissions() {
+
+    canDeleteHistory =
+        await hasPermission("deleteEquipment");
+
+}
+
+applyPermissions();
 
 /* =========================
 RENDER TABLE
@@ -46,23 +62,39 @@ function renderHistory(data) {
         const row = document.createElement("tr");
 
         row.innerHTML = `
-            <td>${ticket.equipment}</td>
-            <td>${ticket.reporter}</td>
-            <td>${ticket.issue}</td>
-            <td>${ticket.priority}</td>
-            <td>${ticket.status}</td>
-            <td>${ticket.createdAt}</td>
+    <td>${ticket.equipment}</td>
+    <td>${ticket.reporter}</td>
+    <td>${ticket.issue}</td>
+    <td>${ticket.priority}</td>
+    <td>${ticket.status}</td>
+    <td>${ticket.createdAt}</td>
+
+    ${
+        canDeleteHistory
+            ? `
             <td>
-            <button class="delete-btn">
-            <span class="material-symbols-rounded">delete</span>
-        </button>
+                <button class="delete-btn">
+                    <span class="material-symbols-rounded">
+                        delete
+                    </span>
+                </button>
             </td>
-        `;
+            `
+            : ""
+    }
+`;
 
         // Attach click handler
-        row.querySelector(".delete-btn").addEventListener("click", () => {
-            deleteHistory(id);
-        });
+        if (canDeleteHistory) {
+
+    row.querySelector(".delete-btn")
+    ?.addEventListener("click", () => {
+
+        deleteHistory(id);
+
+    });
+
+}
 
         // Append the row to the table
         historyTable.appendChild(row);
@@ -86,7 +118,10 @@ onValue(ticketsRef, (snapshot) => {
 DELETE HISTORY
 ========================= */
 
-function deleteHistory(id){
+async function deleteHistory(id){
+
+    if (!canDeleteHistory)
+        return;
 
     const confirmDelete = confirm(
         "Delete this maintenance history?"
