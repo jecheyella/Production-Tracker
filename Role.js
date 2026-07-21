@@ -92,23 +92,25 @@ export const permissions = {
 
     Volunteer: {
 
-        dashboard: true,
-        inventory: true,
-        searchEquipment: true,
-        addEquipment: false,
-        editEquipment: false,
-        deleteEquipment: false,
+    dashboard: true,
+    inventory: true,
+    searchEquipment: true,
+    addEquipment: false,
+    editEquipment: false,
+    deleteEquipment: false,
 
-        tickets: true,
-        createTicket: true,
-        completeTicket: false,
-        deleteTicket: false,
+    tickets: true,
+    createTicket: true,
+    completeTicket: false,
+    deleteTicket: false,
 
-        maintenance: false,
-        history: true,
+    maintenance: true,          // ✅ Can open the page
+    completeMaintenance: false, // ❌ Cannot complete repairs
 
-        profile: true,
-        settings: true
+    history: true,
+
+    profile: true,
+    settings: true
 
     }
 

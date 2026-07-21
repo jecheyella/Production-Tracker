@@ -1,8 +1,10 @@
-import { auth } from "./firebase-config.js";
+import { auth,db } from "./firebase-config.js";
 
 import {
     onAuthStateChanged,
-    signOut
+    signOut,
+    ref,
+    get
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 
@@ -16,20 +18,48 @@ const email = document.getElementById("userEmail");
 const logout =
 document.getElementById("profileLogoutBtn");
 
-onAuthStateChanged(auth,(user)=>{
+onAuthStateChanged(auth, async (user) => {
 
-    if(!user){
+    if (!user) {
 
-        window.location.href="Production.html";
+        window.location.href = "Production.html";
         return;
 
     }
 
-    name.textContent =
-    user.displayName || "Administrator";
+    try {
 
-    email.textContent =
-    user.email;
+        const snapshot = await get(
+            ref(db, "Users/" + user.uid)
+        );
+
+        if (snapshot.exists()) {
+
+            const data = snapshot.val();
+
+            name.textContent =
+                data.fullName || "Unknown User";
+
+            email.textContent =
+                data.email || user.email;
+
+            const roleElement =
+                document.getElementById("userRole");
+
+            if (roleElement) {
+
+                roleElement.textContent =
+                    data.role || "Volunteer";
+
+            }
+
+        }
+
+    } catch (error) {
+
+        console.error(error);
+
+    }
 
 });
 

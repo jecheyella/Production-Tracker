@@ -21,14 +21,7 @@ let canCompleteMaintenance = false;
 async function applyPermissions() {
 
     canCompleteMaintenance =
-        await hasPermission("maintenance");
-
-    if (!canCompleteMaintenance) {
-
-        document.querySelectorAll(".completeRepair")
-            .forEach(btn => btn.remove());
-
-    }
+        await hasPermission("completeMaintenance");
 
 }
 
@@ -79,16 +72,15 @@ onValue(ticketsRef, (snapshot) => {
         <td>
     ${
         canCompleteMaintenance
-        ? `
-        <button
-            class="completeRepair"
-            data-id="${id}">
-            Complete
-        </button>
-        `
-        : "-"
+            ? `
+            <button
+                class="completeRepair"
+                data-id="${id}">
+                Complete
+            </button>
+            `
+            : "-"
     }
-
 </td>
 
             </tr>
@@ -116,7 +108,7 @@ COMPLETE REPAIR
 
 document.addEventListener("click", async (e) => {
 
-    if (!canAccessMaintenance) return;
+    if (!canCompleteMaintenance) return;
 
 
     if(!e.target.classList.contains("completeRepair"))
