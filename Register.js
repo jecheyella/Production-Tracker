@@ -154,7 +154,7 @@ if (registerBtn) {
 
             await set(ref(db, "Users/" + uid), {
 
-                uid: uid,
+                uid,
                 fullName: name.replace(/\s+/g, " ").trim(),
                 email: userEmail,
                 role: userRole === "Admin" ? "Admin" : "Volunteer",
