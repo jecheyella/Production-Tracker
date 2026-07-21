@@ -20,12 +20,13 @@ ELEMENTS
 
 const name = document.getElementById("userName");
 const email = document.getElementById("userEmail");
-const roleElement = document.getElementById("userRole");
-const badgeElement = document.getElementById("userRoleBadge");
 const logout = document.getElementById("profileLogoutBtn");
 
+const roleElement = document.getElementById("userRole");
+const badgeElement = document.getElementById("userRoleBadge");
+
 /* =========================
-LOAD USER PROFILE
+LOAD USER
 ========================= */
 
 onAuthStateChanged(auth, async (user) => {
@@ -43,58 +44,40 @@ onAuthStateChanged(auth, async (user) => {
             ref(db, "Users/" + user.uid)
         );
 
-        if (!snapshot.exists()) {
+        if (snapshot.exists()) {
 
-            name.textContent = "Unknown User";
-            email.textContent = user.email || "-";
+            const data = snapshot.val();
+
+            name.textContent =
+                data.fullName || "Unknown User";
+
+            email.textContent =
+                data.email || user.email;
+
+            // Show Administrator instead of Admin
+            let roleText = data.role || "Volunteer";
+
+            if (roleText === "Admin") {
+                roleText = "Administrator";
+            }
 
             if (roleElement) {
-                roleElement.textContent = "-";
+                roleElement.textContent = roleText;
             }
 
             if (badgeElement) {
-                badgeElement.textContent = "-";
+                badgeElement.textContent = roleText;
             }
 
-            return;
+        } else {
 
-        }
+            console.log("User data not found.");
 
-        const data = snapshot.val();
-
-        name.textContent =
-            data.fullName || "Unknown User";
-
-        email.textContent =
-            data.email || user.email;
-
-        const roleText =
-            data.role === "Admin"
-                ? "Administrator"
-                : "Volunteer";
-
-        if (roleElement) {
-            roleElement.textContent = roleText;
-        }
-
-        if (badgeElement) {
-            badgeElement.textContent = roleText;
         }
 
     } catch (error) {
 
-        console.error("Failed to load profile:", error);
-
-        name.textContent = "Unknown User";
-        email.textContent = "-";
-
-        if (roleElement) {
-            roleElement.textContent = "-";
-        }
-
-        if (badgeElement) {
-            badgeElement.textContent = "-";
-        }
+        console.error("Profile Error:", error);
 
     }
 
@@ -104,16 +87,8 @@ onAuthStateChanged(auth, async (user) => {
 LOGOUT
 ========================= */
 
-logout?.addEventListener("click", async () => {
+logout?.addEventListener("click", () => {
 
-    try {
-
-        await signOut(auth);
-
-    } catch (error) {
-
-        console.error("Logout failed:", error);
-
-    }
+    signOut(auth);
 
 });
