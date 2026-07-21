@@ -16,18 +16,17 @@ initUI();
 ROLE PERMISSIONS
 ========================= */
 
-let canAccessMaintenance = false;
+let canCompleteMaintenance = false;
 
 async function applyPermissions() {
 
-    canAccessMaintenance =
+    canCompleteMaintenance =
         await hasPermission("maintenance");
 
-    if (!canAccessMaintenance) {
+    if (!canCompleteMaintenance) {
 
-        alert("You do not have permission to access this page.");
-
-        window.location.href = "Dashboard.html";
+        document.querySelectorAll(".completeRepair")
+            .forEach(btn => btn.remove());
 
     }
 
@@ -77,17 +76,20 @@ onValue(ticketsRef, (snapshot) => {
 
                 <td>${ticket.status}</td>
 
-                <td>
+        <td>
+    ${
+        canCompleteMaintenance
+        ? `
+        <button
+            class="completeRepair"
+            data-id="${id}">
+            Complete
+        </button>
+        `
+        : "-"
+    }
 
-                    <button
-                    class="completeRepair"
-                    data-id="${id}">
-
-                    Complete
-
-                    </button>
-
-                </td>
+</td>
 
             </tr>
 
