@@ -152,17 +152,21 @@ if (registerBtn) {
 
             const uid = userCredential.user.uid;
 
-            await set(ref(db, "Users/" + uid), {
+            console.log("Saving user to Realtime Database...");
 
-                uid,
-                fullName: name.replace(/\s+/g, " ").trim(),
-                email: userEmail,
-                role: userRole === "Admin" ? "Admin" : "Volunteer",
-                status: "Active",
-                profileImage: "",
-                createdAt: new Date().toISOString()
+await set(ref(db, "Users/" + uid), {
 
-            });
+    uid,
+    fullName: name.replace(/\s+/g, " ").trim(),
+    email: userEmail,
+    role: userRole === "Admin" ? "Admin" : "Volunteer",
+    status: "Active",
+    profileImage: "",
+    createdAt: new Date().toISOString()
+
+});
+
+console.log("User successfully saved!");
 
             registerError.style.color = "#22c55e";
 

@@ -46,6 +46,7 @@ onAuthStateChanged(auth, async (user) => {
         const snapshot = await get(
             ref(db, "Users/" + user.uid)
         );
+        console.log("Snapshot exists:", snapshot.exists());
 
         if (snapshot.exists()) {
 
